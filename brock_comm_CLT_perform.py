@@ -8,6 +8,7 @@ Author: Qingshi
 References:
 - UBC Brock Commons Structural Performance Report Sept 2020: https://sustain.ubc.ca/sites/default/files/UBC%20Brock%20Commons%20Structural%20Performance%20Report%20Sept%202020.pdf
 - CCBST 2017 Moisture Performance and Vertical Movement Monitoring of Pre-Fabricated CLT - Paper No 88 
+- https://www.kaggle.com/kmkarakaya/missing-data-and-time-series-prediction-by-prophet
 """
 
 """
@@ -81,10 +82,15 @@ class CLT_perform:
 
 		# log the information of the data
 		self.logger.info(f"==== statistics of {col_name} column ====")
-		self.logger.info(f"timestamps of missing data are {missing_data_timestamps}")
+		#self.logger.info(f"timestamps of missing data are {missing_data_timestamps}")
+		self.logger.info(f"idx of the FIRST valid cell is: {self.worksheet[col_name].first_valid_index()}")
+		self.logger.info(f"idx of the LAST valid cell is: {self.worksheet[col_name].last_valid_index()}")
 		self.logger.info(" ")
 
-		# retain the time series data with
-
+		# retain the time series data with valid data
+		# determine first and last valid index
+		first_valid_idx, last_valid_idx = self.worksheet[col_name].first_valid_index(), self.worksheet[col_name].last_valid_index()
+		# make a copy of the part of interest
+		self.data_for_anal = pd.DataFrame(self.worksheet[col_name].iloc[[first_valid_idx,last_valid_idx+1]].copy()) # [caution] .iloc is end-exclusive (while .loc is end-inclusive)
 
 
