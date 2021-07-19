@@ -23,7 +23,9 @@ import os
 from datetime import datetime as dt
 import logging
 from copy import deepcopy
-
+from fbprophet import Prophet
+from fb_prophet_train_forecast import FB_prophet_train_forecast
+from sklearn.impute import SimpleImputer
 
 class CLT_perform:
 	"""
@@ -66,15 +68,16 @@ class CLT_perform:
 			self.worksheet[col_name] = self.worksheet[col_name].apply(lambda x: x.strip() if isinstance(x, str) else x)
 			self.worksheet[col_name] = self.worksheet[col_name].apply(lambda x: None if x == 'NULL' else x)
 		# - create two new columns to store Date and Time separately
-		self.worksheet['Date'] = self.worksheet["DateTime"].apply(lambda x: dt.strptime(x, "%Y-%m-%d %H:%M:%S%z").date())
-		self.worksheet['Time'] = self.worksheet["DateTime"].apply(lambda x: dt.strptime(x, "%Y-%m-%d %H:%M:%S%z").time())
+		self.worksheet["DateTime"] = self.worksheet["DateTime"].apply(lambda x: dt.strptime(x[:-5], "%Y-%m-%d %H:%M:%S")) # slice to exclude timezone info
+		self.worksheet['Date'] = self.worksheet["DateTime"].apply(lambda x: x.date())
+		self.worksheet['Time'] = self.worksheet["DateTime"].apply(lambda x: x.time())
 		# - get a list of data column names 
 		self.data_columns = [col_name for col_name in self.worksheet.columns if col_name not in ['Date', 'Time', 'DateTime']]
 
-	def preprocess(self, col_name):
+	def preprocess(self, col_name, in_sample_forecast=True, forecast_horizon=None, **kwargs):
 		"""
 		this method does the following for ONE column of a dataframe:
-			- log the information of data
+			- prepare train data (and test data, if in-sample forecast)
 		"""
 		# get a list of timestamps where there is missing data
 		boolean_mask= pd.isnull(self.worksheet[col_name])
@@ -91,6 +94,25 @@ class CLT_perform:
 		# determine first and last valid index
 		first_valid_idx, last_valid_idx = self.worksheet[col_name].first_valid_index(), self.worksheet[col_name].last_valid_index()
 		# make a copy of the part of interest
-		self.data_for_anal = pd.DataFrame(self.worksheet[col_name].iloc[[first_valid_idx,last_valid_idx+1]].copy()) # [caution] .iloc is end-exclusive (while .loc is end-inclusive)
+		self.data_for_anal = pd.DataFrame(self.worksheet[col_name].iloc[first_valid_idx:last_valid_idx+1].copy()).rename(columns={col_name:'y'}) # [caution] .iloc is end-exclusive (while .loc is end-inclusive)
+		#print(self.data_for_anal.tail())
 
+		# prepare training and test data
+		if in_sample_forecast:
+			self.train_df = self.data_for_anal[:-forecast_horizon]
+			self.test_df =  self.data_for_anal[-forecast_horizon:]
+		else:
+			self.train_df = self.data_for_anal
 
+		# check if impute is intended for training data (using sklearn SimpleImputer)
+		if 'impute' in kwargs:
+			my_imputer = SimpleImputer(strategy=kwargs['impute'])
+			y = self.train_df['y'].values
+			y = y.reshape(-1, 1)
+			y_imputed = my_imputer.fit_transform(y)
+			self.train_df = self.train_df.update(pd.Series(y_imputed, name='y'))
+
+		#print(self.train_df.tail())
+
+	def train_N_forecast(self):
+		pass
