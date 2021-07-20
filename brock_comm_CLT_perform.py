@@ -18,6 +18,7 @@ Import libraries
 """
 import pmdarima as pm
 import pandas as pd
+import numpy as np
 import brock_comm_config as config
 import os
 from datetime import datetime as dt
@@ -66,7 +67,7 @@ class CLT_perform:
 		# - remove white space for str objects in data columns & replace 'NULL' with 'None'
 		for col_name in self.worksheet.columns:
 			self.worksheet[col_name] = self.worksheet[col_name].apply(lambda x: x.strip() if isinstance(x, str) else x)
-			self.worksheet[col_name] = self.worksheet[col_name].apply(lambda x: None if x == 'NULL' else x)
+			self.worksheet[col_name] = self.worksheet[col_name].apply(lambda x: np.nan if x == 'NULL' else x)
 		# - create two new columns to store Date and Time separately
 		self.worksheet["DateTime"] = self.worksheet["DateTime"].apply(lambda x: dt.strptime(x[:-5], "%Y-%m-%d %H:%M:%S")) # slice to exclude timezone info
 		self.worksheet['Date'] = self.worksheet["DateTime"].apply(lambda x: x.date())
@@ -80,7 +81,7 @@ class CLT_perform:
 			- prepare train data (and test data, if in-sample forecast)
 		"""
 		# get a list of timestamps where there is missing data
-		boolean_mask= pd.isnull(self.worksheet[col_name])
+		boolean_mask= pd.isna(self.worksheet[col_name])
 		missing_data_timestamps = list(self.worksheet['DateTime'][boolean_mask])
 
 		# log the information of the data
@@ -110,9 +111,13 @@ class CLT_perform:
 			y = self.train_df['y'].values
 			y = y.reshape(-1, 1)
 			y_imputed = my_imputer.fit_transform(y)
-			self.train_df = self.train_df.update(pd.Series(y_imputed, name='y'))
+			self.train_df.update(pd.Series(np.squeeze(y_imputed), name='y'))
+			print(f"after imputation, there is {self.train_df['y'].isna().sum()} missing pt")
+			print(self.train_df['y'][self.train_df['y'].isna()])
+			#print(self.train_df['y'].dtypes)
 
-		#print(self.train_df.tail())
+		print(self.train_df.tail())
+
 
 	def train_N_forecast(self):
 		pass
