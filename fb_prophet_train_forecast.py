@@ -27,4 +27,4 @@ class FB_prophet_train_forecast:
 		return forecast
 
 	def eval_model(self, groundtruth, forecast_results):
-		return mean_absolute_error(groundtruth, forecast['yhat'])
+		return {'MAE': mean_absolute_error(groundtruth, forecast_results['yhat'])}
