@@ -16,7 +16,7 @@ References:
 Import libraries
 ================
 """
-import pmdarima as pm
+#import pmdarima as pm
 import pandas as pd
 import numpy as np
 import brock_comm_config as config
@@ -24,7 +24,6 @@ import os
 from datetime import datetime as dt
 import logging
 from copy import deepcopy
-from fbprophet import Prophet
 from fb_prophet_train_forecast import FB_prophet_train_forecast
 from sklearn.impute import SimpleImputer
 
@@ -100,24 +99,41 @@ class CLT_perform:
 
 		# prepare training and test data
 		if in_sample_forecast:
-			self.train_df = self.data_for_anal[:-forecast_horizon]
-			self.test_df =  self.data_for_anal[-forecast_horizon:]
+			self.train_df = self.data_for_anal[:-forecast_horizon].copy() # otherwise you will get 'SettingWithCopyWarning' when try to add new columns
+			self.test_df =  self.data_for_anal[-forecast_horizon:].copy()
 		else:
-			self.train_df = self.data_for_anal
+			self.train_df = self.data_for_anal.copy()
 
 		# check if impute is intended for training data (using sklearn SimpleImputer)
 		if 'impute' in kwargs:
 			my_imputer = SimpleImputer(strategy=kwargs['impute'])
 			y = self.train_df['y'].values
 			y = y.reshape(-1, 1)
-			y_imputed = my_imputer.fit_transform(y)
-			self.train_df.update(pd.Series(np.squeeze(y_imputed), name='y'))
+			y_imputed = my_imputer.fit_transform(y).tolist()
+			y_imputed = [y[0] for y in y_imputed]
+			#print(f"{y[9,0]} is the same as {y_imputed[9]}")
+
+			self.train_df['y_imputed'] = y_imputed
+			self.train_df.drop(columns=['y'], inplace=True)
+			self.train_df.rename(columns={'y_imputed': 'y'}, inplace=True)
 			print(f"after imputation, there is {self.train_df['y'].isna().sum()} missing pt")
-			print(self.train_df['y'][self.train_df['y'].isna()])
-			#print(self.train_df['y'].dtypes)
 
-		print(self.train_df.tail())
+		#print(self.train_df.tail())
 
 
-	def train_N_forecast(self):
+	def train_N_forecast(self,train,forecast_params,forecast_horizon,**kwargs):
+		# obtain the forecast results
+		self.forecast_obj = FB_prophet_train_forecast()
+		self.forecast_results = self.forecast_obj.train_forecast(train,forecast_params,forecast_horizon)
+
+		# evaluate the forecast results only when groundtruth data is given
+		if 'groundtruth' in kwargs:
+			self.eval_results_dict = self.forecast_obj.eval_model(kwargs['groundtruth'], self.forecast_results)
+			# log the evaluation results
+			for method, result in self.eval_results_dict.items():
+				self.logger.info(f"{method}: {result}")
+
+	def plot_results(self, forecast_results):
 		pass
+
+
