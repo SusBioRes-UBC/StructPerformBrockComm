@@ -78,6 +78,7 @@ class CLT_perform:
 		"""
 		this method does the following for ONE column of a dataframe:
 			- prepare train data (and test data, if in-sample forecast)
+			- forecast_horizon: must have the same value as 'periods' in forecast_params
 		"""
 		# get a list of timestamps where there is missing data
 		boolean_mask= pd.isna(self.worksheet[col_name])
@@ -94,37 +95,37 @@ class CLT_perform:
 		# determine first and last valid index
 		first_valid_idx, last_valid_idx = self.worksheet[col_name].first_valid_index(), self.worksheet[col_name].last_valid_index()
 		# make a copy of the part of interest
-		self.data_for_anal = pd.DataFrame(self.worksheet[col_name].iloc[first_valid_idx:last_valid_idx+1].copy()).rename(columns={col_name:'y'}) # [caution] .iloc is end-exclusive (while .loc is end-inclusive)
+		self.data_for_anal = pd.DataFrame(self.worksheet[[col_name,"DateTime"]].iloc[first_valid_idx:last_valid_idx+1].copy()).rename(columns={col_name:'y', 'DateTime': 'ds'})
+		#self.data_for_anal = pd.DataFrame(self.worksheet[col_name].iloc[first_valid_idx:last_valid_idx+1].copy()).rename(columns={col_name:'y'}) # [caution] .iloc is end-exclusive (while .loc is end-inclusive)
 		#print(self.data_for_anal.tail())
 
-		# prepare training and test data
-		if in_sample_forecast:
-			self.train_df = self.data_for_anal[:-forecast_horizon].copy() # otherwise you will get 'SettingWithCopyWarning' when try to add new columns
-			self.test_df =  self.data_for_anal[-forecast_horizon:].copy()
-		else:
-			self.train_df = self.data_for_anal.copy()
-
-		# check if impute is intended for training data (using sklearn SimpleImputer)
+		
+		# check if impute is intended for ALL data (using sklearn SimpleImputer)
 		if 'impute' in kwargs:
 			my_imputer = SimpleImputer(strategy=kwargs['impute'])
-			y = self.train_df['y'].values
+			y = self.data_for_anal['y'].values
 			y = y.reshape(-1, 1)
 			y_imputed = my_imputer.fit_transform(y).tolist()
 			y_imputed = [y[0] for y in y_imputed]
 			#print(f"{y[9,0]} is the same as {y_imputed[9]}")
 
-			self.train_df['y_imputed'] = y_imputed
-			self.train_df.drop(columns=['y'], inplace=True)
-			self.train_df.rename(columns={'y_imputed': 'y'}, inplace=True)
-			print(f"after imputation, there is {self.train_df['y'].isna().sum()} missing pt")
+			self.data_for_anal['y_imputed'] = y_imputed
+			self.data_for_anal.drop(columns=['y'], inplace=True)
+			self.data_for_anal.rename(columns={'y_imputed': 'y'}, inplace=True)
+			print(f"after imputation, there is {self.data_for_anal['y'].isna().sum()} missing pt")
 
-		#print(self.train_df.tail())
+		# prepare training and test data
+		if in_sample_forecast:
+			self.train_df = self.data_for_anal[:-forecast_horizon] #.copy() # use copy(), otherwise you will get 'SettingWithCopyWarning' when try to add new columns
+			self.test_df =  self.data_for_anal[-forecast_horizon:] #.copy()
+		else:
+			self.train_df = self.data_for_anal #.copy()
+		print(self.train_df.tail())
 
-
-	def train_N_forecast(self,train,forecast_params,forecast_horizon,**kwargs):
+	def train_N_forecast(self,train,forecast_params,**kwargs):
 		# obtain the forecast results
 		self.forecast_obj = FB_prophet_train_forecast()
-		self.forecast_results = self.forecast_obj.train_forecast(train,forecast_params,forecast_horizon)
+		self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train,forecast_params)
 
 		# evaluate the forecast results only when groundtruth data is given
 		if 'groundtruth' in kwargs:
@@ -133,7 +134,13 @@ class CLT_perform:
 			for method, result in self.eval_results_dict.items():
 				self.logger.info(f"{method}: {result}")
 
-	def plot_results(self, forecast_results):
-		pass
+	def plot_results(self, trained_model, forecast_results):
+		"""
+		use the built-in plotting method to plot the forecast results, see: https://facebook.github.io/prophet/docs/quick_start.html#python-api
+		"""
+
+		trained_model.plot(forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]).savefig(os.path.sep.join([config.OUTPUT_PATH,'forecast_result.png']), dpi=600)
+
+
 
 
