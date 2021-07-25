@@ -24,6 +24,7 @@ class FB_prophet_train_forecast:
 		#forecast = forecast[['ds', 'yhat']]
 		#forecast = forecast[-forecast_horizon:] 
 		#print(f"shape of forecast obj: {forecast.shape}")
+		print(f"tail of forecast results: {forecast[['ds', 'yhat']].tail()}")
 		return forecast, m
 
 	def eval_model(self, groundtruth, forecast_results):
