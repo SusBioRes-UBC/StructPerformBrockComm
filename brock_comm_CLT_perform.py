@@ -26,6 +26,8 @@ import logging
 from copy import deepcopy
 from fb_prophet_train_forecast import FB_prophet_train_forecast
 from sklearn.impute import SimpleImputer
+import json
+from prophet.serialize import model_to_json, model_from_json
 
 class CLT_perform:
 	"""
@@ -74,12 +76,16 @@ class CLT_perform:
 		# - get a list of data column names 
 		self.data_columns = [col_name for col_name in self.worksheet.columns if col_name not in ['Date', 'Time', 'DateTime']]
 
+
 	def preprocess(self, col_name, in_sample_forecast=True, forecast_horizon=None, **kwargs):
 		"""
 		this method does the following for ONE column of a dataframe:
 			- prepare train data (and test data, if in-sample forecast)
 			- forecast_horizon: must have the same value as 'periods' in forecast_params
 		"""
+		# store column name for plot use
+		self.col_name = col_name
+
 		# get a list of timestamps where there is missing data
 		boolean_mask= pd.isna(self.worksheet[col_name])
 		missing_data_timestamps = list(self.worksheet['DateTime'][boolean_mask])
@@ -98,7 +104,6 @@ class CLT_perform:
 		self.data_for_anal = pd.DataFrame(self.worksheet[[col_name,"DateTime"]].iloc[first_valid_idx:last_valid_idx+1].copy()).rename(columns={col_name:'y', 'DateTime': 'ds'})
 		#self.data_for_anal = pd.DataFrame(self.worksheet[col_name].iloc[first_valid_idx:last_valid_idx+1].copy()).rename(columns={col_name:'y'}) # [caution] .iloc is end-exclusive (while .loc is end-inclusive)
 		#print(self.data_for_anal.tail())
-
 		
 		# check if impute is intended for ALL data (using sklearn SimpleImputer)
 		if 'impute' in kwargs:
@@ -122,6 +127,7 @@ class CLT_perform:
 			self.train_df = self.data_for_anal #.copy()
 		print(self.train_df.tail())
 
+
 	def train_N_forecast(self,train,forecast_params,**kwargs):
 		# obtain the forecast results
 		self.forecast_obj = FB_prophet_train_forecast()
@@ -134,13 +140,21 @@ class CLT_perform:
 			for method, result in self.eval_results_dict.items():
 				self.logger.info(f"{method}: {result}")
 
-	def plot_results(self, trained_model, forecast_results):
+		# save the trained model (see: https://facebook.github.io/prophet/docs/additional_topics.html)
+		with open(os.path.sep.join([config.OUTPUT_PATH,'serialized_model.json']), 'w') as fout:
+			json.dump(model_to_json(self.trained_model), fout)
+
+
+	def plot_results(self, fig_name, trained_model, forecast_results):
 		"""
 		use the built-in plotting method to plot the forecast results, see: https://facebook.github.io/prophet/docs/quick_start.html#python-api
 		"""
 
-		trained_model.plot(forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]).savefig(os.path.sep.join([config.OUTPUT_PATH,'forecast_result.png']), dpi=600)
+		#trained_model.plot(forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]).savefig(os.path.sep.join([config.OUTPUT_PATH,'forecast_result.png']), dpi=600)
 
-
-
+		fig = trained_model.plot(forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']])
+		ax = fig.gca()
+		ax.set_xlabel("Time", size=20)
+		ax.set_ylabel(self.col_name, size=20)
+		fig.savefig(os.path.sep.join([config.OUTPUT_PATH,'{}.png'.format(fig_name)]), dpi=600)
 
