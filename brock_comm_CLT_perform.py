@@ -129,9 +129,15 @@ class CLT_perform:
 
 
 	def train_N_forecast(self,train,forecast_params,**kwargs):
-		# obtain the forecast results
 		self.forecast_obj = FB_prophet_train_forecast()
-		self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train,forecast_params)
+
+		# check if retrain an existing model
+		if 'trained_model' in kwargs:
+			self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train,forecast_params,trained_model=kwargs['trained_model'])
+			model_name = 'retrained_model.json'
+		else:
+			self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train,forecast_params)
+			model_name = 'initially_trained_model.json'
 
 		# evaluate the forecast results only when groundtruth data is given
 		if 'groundtruth' in kwargs:
@@ -141,7 +147,7 @@ class CLT_perform:
 				self.logger.info(f"{method}: {result}")
 
 		# save the trained model (see: https://facebook.github.io/prophet/docs/additional_topics.html)
-		with open(os.path.sep.join([config.OUTPUT_PATH,'serialized_model.json']), 'w') as fout:
+		with open(os.path.sep.join([config.OUTPUT_PATH, model_name]), 'w') as fout:
 			json.dump(model_to_json(self.trained_model), fout)
 
 
