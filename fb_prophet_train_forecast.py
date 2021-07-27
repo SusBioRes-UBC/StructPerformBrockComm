@@ -4,21 +4,42 @@ This class trains a FB Prophet model, makes the forecast and evaluate the result
 Reference: https://www.kaggle.com/kmkarakaya/missing-data-and-time-series-prediction-by-prophet
 """
 
+import brock_comm_config as config
 from prophet import Prophet
 from sklearn.metrics import mean_absolute_error
+import os
+import json
+from prophet.serialize import model_to_json, model_from_json
 
 class FB_prophet_train_forecast:
 
-	def train_forecast(self,train,forecast_params):
+	def train_forecast(self,train,forecast_params,**kwargs):
 		"""
 		Arguments:
 			- train: training data, df('ds', 'y')
 			- forecast_params: a dict of params for .make_future_dataframe(), e.g., {'periods': xx, 'freq': yy}
 		"""
-
 		self.forecast_horizon = forecast_params['periods']
-		m = Prophet()
-		m.fit(train)
+
+		# check if retrain an existing model, see: https://facebook.github.io/prophet/docs/additional_topics.html#updating-fitted-models
+		if 'trained_model' in kwargs:
+			# load the model
+			with open(os.path.sep.join([config.OUTPUT_PATH,kwargs['trained_model']]), 'r') as fin:
+				m = model_from_json(json.load(fin))
+
+			# get params
+			res = {}
+			for pname in ['k', 'm', 'sigma_obs']:
+				res[pname] = m.params[pname][0][0]
+			for pname in ['delta', 'beta']:
+				res[pname] = m.params[pname][0]
+			# retrain model
+			m = Prophet().fit(train, init=res)
+		else:
+			m = Prophet()
+			m.fit(train)
+
+		# make forecast
 		future = m.make_future_dataframe(**forecast_params)
 		forecast = m.predict(future)
 		#forecast = forecast[['ds', 'yhat']]
