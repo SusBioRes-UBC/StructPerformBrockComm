@@ -18,6 +18,8 @@ class FB_prophet_train_forecast:
 		Arguments:
 			- train: training data, df('ds', 'y')
 			- forecast_params: a dict of params for .make_future_dataframe(), e.g., {'periods': xx, 'freq': yy}
+			- kwargs['regressor_list']: a list containing all the regressor column names
+			- kwargs['regressor_trans_func']: a dict of transformation fucntions for regressors, {'regressor_name': func, ...}
 		"""
 		self.forecast_horizon = forecast_params['periods']
 
@@ -35,13 +37,31 @@ class FB_prophet_train_forecast:
 				res[pname] = m.params[pname][0]
 			# retrain model
 			m = Prophet().fit(train, init=res)
+			# make forecast
+			future = m.make_future_dataframe(**forecast_params)
+			forecast = m.predict(future)
 		else:
 			m = Prophet()
-			m.fit(train)
+			if 'regressor_list' in kwargs:
+				for regressor in kwargs['regressor_list']:
+				# add regressors to the model
+					m.add_regressor(regressor)
+				# train the model
+				m.fit(train) # 'train' should contain already-transformed regressor values
+				# make forecast
+				future = m.make_future_dataframe(**forecast_params)
+				for regressor in kwargs['regressor_list']:
+					# apply the same transformation function (used to transform training data) to the future regressor values 
+					future[regressor] = future['ds'].apply(kwargs['regressor_trans_func'][regressor])
+			else: 
+				# train the model directly, if no regressor is provider
+				m.fit(train)
+				# make forecast
+				future = m.make_future_dataframe(**forecast_params)
+			
+			# make prediction
+			forecast = m.predict(future)
 
-		# make forecast
-		future = m.make_future_dataframe(**forecast_params)
-		forecast = m.predict(future)
 		#forecast = forecast[['ds', 'yhat']]
 		#forecast = forecast[-forecast_horizon:] 
 		#print(f"shape of forecast obj: {forecast.shape}")
