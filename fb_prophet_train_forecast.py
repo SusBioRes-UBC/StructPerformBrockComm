@@ -5,6 +5,7 @@ Reference: https://www.kaggle.com/kmkarakaya/missing-data-and-time-series-predic
 """
 
 import brock_comm_config as config
+from regressor_helper import RegressHelp
 from prophet import Prophet
 from sklearn.metrics import mean_absolute_error
 import os
@@ -43,9 +44,14 @@ class FB_prophet_train_forecast:
 		else:
 			m = Prophet()
 			if 'regressor_list' in kwargs:
-				for regressor in kwargs['regressor_list']:
-				# add regressors to the model
-					m.add_regressor(regressor)
+				for regressor_tuple in kwargs['regressor_list']:
+					# match the timestep between regressor and time series; regressor_tuple(regressor_name, regressor_dataframe)
+					pass
+					# add regressor data to training dataframe
+					#train[regressor_tuple[0]] = matched_regr_data
+					# add regressor to the model
+					m.add_regressor(regressor_tuple[0])
+
 				# train the model
 				m.fit(train) # 'train' should contain already-transformed regressor values
 				# make forecast
