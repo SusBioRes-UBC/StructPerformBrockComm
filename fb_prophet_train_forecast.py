@@ -44,21 +44,31 @@ class FB_prophet_train_forecast:
 		else:
 			m = Prophet()
 			if 'regressor_list' in kwargs:
-				for regressor_tuple in kwargs['regressor_list']:
-					# match the timestep between regressor and time series; regressor_tuple(regressor_name, regressor_dataframe)
-					pass
-					# add regressor data to training dataframe
-					#train[regressor_tuple[0]] = matched_regr_data
-					# add regressor to the model
-					m.add_regressor(regressor_tuple[0])
+				reg_help = RegressHelp()
+				for (regressor_name_lst, regressor_df) in kwargs['regressor_list']:
+					# match the timestep between regressor and time series; regressor_tuple([regressor_col_name1,...,regressor_col_nameN], regressor_dataframe)
+					adjusted_regr, train = reg_help.matching_regr_data(regressor_df, train)
+					for regressor_name in regressor_name_lst:
+						# add regressor data to training dataframe
+						train[regressor_name] = adjusted_regr[regressor_name].values
+						#print(f"there is {sum(train[regressor_name].isna())} NaN in {train[regressor_name]}")
+						# add regressor to the model
+						m.add_regressor(regressor_name)
 
 				# train the model
 				m.fit(train) # 'train' should contain already-transformed regressor values
 				# make forecast
 				future = m.make_future_dataframe(**forecast_params)
-				for regressor in kwargs['regressor_list']:
-					# apply the same transformation function (used to transform training data) to the future regressor values 
-					future[regressor] = future['ds'].apply(kwargs['regressor_trans_func'][regressor])
+				
+				for (regressor_name_lst, _) in kwargs['regressor_list']:	
+					for regressor_name in regressor_name_lst:			
+						if 'regressor_trans_func' in kwargs: # dict{'regressor_name1': func1, ..., 'regressor_nameN': funcN}
+							# apply the same transformation function (used to transform training data) to the future regressor values 
+							future[regressor_name] = future['ds'].apply(kwargs['regressor_trans_func'][regressor_name])
+						else:
+							# use the historical data (last "forecast_params['periods']" data points) from adjusted_regr
+							future[regressor_name] = adjusted_regr[regressor_name][-forecast_params['periods']:] # [caution] if historical data points in adjusted_regr are less than "forecast_params['periods']", an error can occur
+				
 			else: 
 				# train the model directly, if no regressor is provider
 				m.fit(train)
