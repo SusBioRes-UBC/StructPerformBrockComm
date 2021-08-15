@@ -130,13 +130,12 @@ class CLT_perform:
 
 	def train_N_forecast(self,train,forecast_params,**kwargs):
 		self.forecast_obj = FB_prophet_train_forecast()
+		self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train,forecast_params, **kwargs)
 
 		# check if retrain an existing model
 		if 'trained_model' in kwargs:
-			self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train,forecast_params,trained_model=kwargs['trained_model'])
 			model_name = 'retrained_model.json'
 		else:
-			self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train,forecast_params)
 			model_name = 'initially_trained_model.json'
 
 		# evaluate the forecast results only when groundtruth data is given
