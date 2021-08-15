@@ -8,7 +8,7 @@ Import libraries
 ================
 """
 import pandas as pd
-
+from sklearn.impute import SimpleImputer
 
 class RegressHelp:
 	"""
@@ -21,11 +21,24 @@ class RegressHelp:
 		retained_climate_data = raw_climate_data[['LOCAL_DATE', 'MEAN_TEMPERATURE','TOTAL_PRECIPITATION']]
 		retained_climate_data.set_index('LOCAL_DATE', inplace=True)
 
+		# imputation to remove NaN
+		if 'impute' in kwargs:
+			for col in ['MEAN_TEMPERATURE','TOTAL_PRECIPITATION']:
+				my_imputer = SimpleImputer(strategy=kwargs['impute'])
+				y = retained_climate_data[col].values
+				y = y.reshape(-1, 1)
+				y_imputed = my_imputer.fit_transform(y).tolist()
+				y_imputed = [y[0] for y in y_imputed]
+
+				retained_climate_data['y_imputed'] = y_imputed
+				retained_climate_data.drop(columns=[col], inplace=True)
+				retained_climate_data.rename(columns={'y_imputed': col}, inplace=True)
+
 		# check if need to expand daily data to hourly 
 		if 'convert_day_to_hour_interval' in kwargs:
 			# use pd.resample to expand daily data to hourly data
 			retained_climate_data = retained_climate_data.resample(kwargs['convert_day_to_hour_interval']).pad()
-
+			
 		# create a "ds" column
 		retained_climate_data['ds'] = retained_climate_data.index
 
@@ -50,4 +63,4 @@ class RegressHelp:
 		print(f"common idex starts with: {common_idx[0]} and ends with {common_idx[-1]}")
 
 		# return two adjusted dataframes with the common timestamp range
-		return ts_data.copy()[common_idx[0]: common_idx[-1]], regr_data.copy()[common_idx[0]: common_idx[-1]]
+		return regr_data.copy()[common_idx[0]: common_idx[-1]], ts_data.copy()[common_idx[0]: common_idx[-1]]
