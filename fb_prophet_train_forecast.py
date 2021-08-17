@@ -52,23 +52,33 @@ class FB_prophet_train_forecast:
 						# add regressor data to training dataframe
 						train[regressor_name] = adjusted_regr[regressor_name].values
 						#print(f"there is {sum(train[regressor_name].isna())} NaN in {train[regressor_name]}")
+						#print(f"tail values for {regressor_name} is {train[regressor_name].tail()}")
+
 						# add regressor to the model
 						m.add_regressor(regressor_name)
+
+				print(f"train data looks like: {train.tail}")
+				print(f"index name of train is {train.index}")
 
 				# train the model
 				m.fit(train) # 'train' should contain already-transformed regressor values
 				# make forecast
 				future = m.make_future_dataframe(**forecast_params)
+				print(f"what does future look like? {future.tail()}")
 				
 				for (regressor_name_lst, _) in kwargs['regressor_list']:	
 					for regressor_name in regressor_name_lst:			
 						if 'regressor_trans_func' in kwargs: # dict{'regressor_name1': func1, ..., 'regressor_nameN': funcN}
-							# apply the same transformation function (used to transform training data) to the future regressor values 
+							# apply the same 'ds'-based transformation function (used to transform training data) to the future regressor values 
+							# [caution] the code below (apply func) has NOT been tested yet as of Aug.17, 2021
 							future[regressor_name] = future['ds'].apply(kwargs['regressor_trans_func'][regressor_name])
 						else:
-							# use the historical data (last "forecast_params['periods']" data points) from adjusted_regr
-							future[regressor_name] = adjusted_regr[regressor_name][-forecast_params['periods']:] # [caution] if historical data points in adjusted_regr are less than "forecast_params['periods']", an error can occur
-				
+							# use the historical data (last "forecast_params['periods']" data points) --> only works properly for in-sample prediction, need to provide a kwargs['test'] <<-this is not going to work, as index of test_df is not datetime obj
+							future[regressor_name] = future['ds'].apply(lambda x: kwargs['test'].loc[x,regressor_name])
+							#print(f"future values for {regressor_name} is {future[regressor_name].tail()}")
+
+				print(f"what does future look like? {future.tail()}")
+
 			else: 
 				# train the model directly, if no regressor is provider
 				m.fit(train)
@@ -83,6 +93,7 @@ class FB_prophet_train_forecast:
 		#print(f"shape of forecast obj: {forecast.shape}")
 		print(f"tail of forecast results: {forecast[['ds', 'yhat']].tail()}")
 		return forecast, m
+
 
 	def eval_model(self, groundtruth, forecast_results):
 		"""

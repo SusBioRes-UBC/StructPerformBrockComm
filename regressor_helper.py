@@ -38,7 +38,7 @@ class RegressHelp:
 		if 'convert_day_to_hour_interval' in kwargs:
 			# use pd.resample to expand daily data to hourly data
 			retained_climate_data = retained_climate_data.resample(kwargs['convert_day_to_hour_interval']).pad()
-			
+
 		# create a "ds" column
 		retained_climate_data['ds'] = retained_climate_data.index
 
@@ -63,4 +63,4 @@ class RegressHelp:
 		print(f"common idex starts with: {common_idx[0]} and ends with {common_idx[-1]}")
 
 		# return two adjusted dataframes with the common timestamp range
-		return regr_data.copy()[common_idx[0]: common_idx[-1]], ts_data.copy()[common_idx[0]: common_idx[-1]]
+		return regr_data.copy().loc[common_idx[0]: common_idx[-1]], ts_data.copy().loc[common_idx[0]: common_idx[-1]]
