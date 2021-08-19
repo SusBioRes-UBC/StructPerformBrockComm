@@ -9,8 +9,10 @@ from regressor_helper import RegressHelp
 from prophet import Prophet
 from sklearn.metrics import mean_absolute_error
 import os
+import pandas as pd
 import json
 from prophet.serialize import model_to_json, model_from_json
+
 
 class FB_prophet_train_forecast:
 
@@ -44,27 +46,27 @@ class FB_prophet_train_forecast:
 		else:
 			m = Prophet()
 			if 'regressor_list' in kwargs:
-				reg_help = RegressHelp()
-				for (regressor_name_lst, regressor_df) in kwargs['regressor_list']:
+				#reg_help = RegressHelp()
+				for (regressor_name_lst, _) in kwargs['regressor_list']:
 					# match the timestep between regressor and time series; regressor_tuple([regressor_col_name1,...,regressor_col_nameN], regressor_dataframe)
-					adjusted_regr, train = reg_help.matching_regr_data(regressor_df, train)
+					#adjusted_regr, train = reg_help.matching_regr_data(regressor_df, train)
 					for regressor_name in regressor_name_lst:
 						# add regressor data to training dataframe
-						train[regressor_name] = adjusted_regr[regressor_name].values
+						#train[regressor_name] = adjusted_regr[regressor_name].values
 						#print(f"there is {sum(train[regressor_name].isna())} NaN in {train[regressor_name]}")
 						#print(f"tail values for {regressor_name} is {train[regressor_name].tail()}")
 
 						# add regressor to the model
 						m.add_regressor(regressor_name)
 
-				print(f"train data looks like: {train.tail}")
-				print(f"index name of train is {train.index}")
+				#print(f"train data looks like: {train.tail}")
+				#print(f"index name of train is {train.index}")
 
 				# train the model
 				m.fit(train) # 'train' should contain already-transformed regressor values
 				# make forecast
 				future = m.make_future_dataframe(**forecast_params)
-				print(f"what does future look like? {future.tail()}")
+				#print(f"what does future look like? {future.tail()}")
 				
 				for (regressor_name_lst, _) in kwargs['regressor_list']:	
 					for regressor_name in regressor_name_lst:			
@@ -74,10 +76,13 @@ class FB_prophet_train_forecast:
 							future[regressor_name] = future['ds'].apply(kwargs['regressor_trans_func'][regressor_name])
 						else:
 							# use the historical data (last "forecast_params['periods']" data points) --> only works properly for in-sample prediction, need to provide a kwargs['test'] <<-this is not going to work, as index of test_df is not datetime obj
-							future[regressor_name] = future['ds'].apply(lambda x: kwargs['test'].loc[x,regressor_name])
+							#future[regressor_name] = future['ds'].apply(lambda x: kwargs['test'].loc[x,regressor_name])
 							#print(f"future values for {regressor_name} is {future[regressor_name].tail()}")
+							last_n_train_data = forecast_params['periods'] # to use last "forecast_params['periods']" data points of the regressor training data as future regressor values
+							# concat the train df with designated amt of regressor data from test df. [Caution]: this will not work if: (1) no test dataset is avaiable or (2) # of data points in the test dataset is less than those needed for forecast
+							future[regressor_name] = pd.concat([train[regressor_name],kwargs["test"][regressor_name][:last_n_train_data]], axis=0).values
 
-				print(f"what does future look like? {future.tail()}")
+				print(f"what does future look like? {future.sample(24)}")
 
 			else: 
 				# train the model directly, if no regressor is provider
