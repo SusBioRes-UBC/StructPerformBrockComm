@@ -28,6 +28,8 @@ from fb_prophet_train_forecast import FB_prophet_train_forecast
 from sklearn.impute import SimpleImputer
 import json
 from prophet.serialize import model_to_json, model_from_json
+from regressor_helper import RegressHelp
+
 
 class CLT_perform:
 	"""
@@ -118,6 +120,15 @@ class CLT_perform:
 			self.data_for_anal.drop(columns=['y'], inplace=True)
 			self.data_for_anal.rename(columns={'y_imputed': 'y'}, inplace=True)
 			print(f"after imputation, there is {self.data_for_anal['y'].isna().sum()} missing pt")
+
+		if 'regressor_list' in kwargs:
+			reg_help = RegressHelp()
+			for (regressor_name_lst, regressor_df) in kwargs['regressor_list']:
+				# match the timestep between regressor and time series; regressor_tuple([regressor_col_name1,...,regressor_col_nameN], regressor_dataframe)
+				adjusted_regr, self.data_for_anal = reg_help.matching_regr_data(regressor_df, self.data_for_anal)
+				for regressor_name in regressor_name_lst:
+					# add regressor data to the timeseries dataframe
+					self.data_for_anal[regressor_name] = adjusted_regr[regressor_name].values
 
 		# prepare training and test data
 		if in_sample_forecast:
