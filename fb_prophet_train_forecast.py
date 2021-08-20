@@ -78,9 +78,9 @@ class FB_prophet_train_forecast:
 							# use the historical data (last "forecast_params['periods']" data points) --> only works properly for in-sample prediction, need to provide a kwargs['test'] <<-this is not going to work, as index of test_df is not datetime obj
 							#future[regressor_name] = future['ds'].apply(lambda x: kwargs['test'].loc[x,regressor_name])
 							#print(f"future values for {regressor_name} is {future[regressor_name].tail()}")
-							last_n_train_data = forecast_params['periods'] # to use last "forecast_params['periods']" data points of the regressor training data as future regressor values
-							# concat the train df with designated amt of regressor data from test df. [Caution]: this will not work if: (1) no test dataset is avaiable or (2) # of data points in the test dataset is less than those needed for forecast
-							future[regressor_name] = pd.concat([train[regressor_name],kwargs["test"][regressor_name][:last_n_train_data]], axis=0).values
+							n_future_regr_data = forecast_params['periods'] 
+							# concat the train df with designated amt of regressor data from a separate df. [Caution]: this will not work if: (1) no separate dataset for future values of regr is avaiable or (2) # of data points in that dataset is less than those needed for forecast
+							future[regressor_name] = pd.concat([train[regressor_name],kwargs["regr_future"][regressor_name][:n_future_regr_data]], axis=0).values
 
 				print(f"what does future look like? {future.sample(24)}")
 
