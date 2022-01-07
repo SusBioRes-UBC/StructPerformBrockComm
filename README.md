@@ -6,4 +6,4 @@
 
 ## Dependencies
 ### Prophet (which depends on pystan): https://facebook.github.io/prophet/docs/installation.html
-- [caution] you need to install a compiler before installing pystan on Windows OS, [see example](https://medium.com/@hamdanmridwan/quickly-setting-up-prophet-with-python-3-x-in-windows-10-ad92aaaa081d) 
+- [caution] you need to install a compiler before installing pystan on Windows OS, [see solution](https://medium.com/@hamdanmridwan/quickly-setting-up-prophet-with-python-3-x-in-windows-10-ad92aaaa081d) 
