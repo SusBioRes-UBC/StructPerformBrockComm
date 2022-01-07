@@ -1,0 +1,41 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid2\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid3\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww14400\viewh14000\viewkind0
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0
+\f0\fs24 \cf0 {\listtext	\uc0\u8226 	}Obtain DAILY climate data from: {\field{\*\fldinst{HYPERLINK "https://climatedata.ca/download/#station-download"}}{\fldrslt https://climatedata.ca/download/#station-download}}\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}search for \'93Haney UBC RF Admin\'94\
+{\listtext	\uc0\u8259 	}[Note] this site does NOT have hourly data\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8226 	}Use DAILY climate data\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\f1 no 
+\f0 need to concatenate \'93LOCAL_DATE\'94 with \'93LOCAL_YEAR\'94\
+{\listtext	\uc0\u8259 	}need to make 12 copies of the daily data and assign to every 2-hr interval\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}done, using pd.resample().pad()\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8226 	}Add regressors\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}adding temperature and precipitation data to time series data [done]\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}find common time span\
+{\listtext	\uc0\u8259 	}make train/test split\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}make future dataframe\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}challenge: future temperature and precipitation cannot be derived based on future[\'91ds\'92] \'97> use data from test_df as future values \'97> works with in-sample forecast\
+{\listtext	\uc0\u8259 	}Out-of-sample forecast (not possible with historical data)\'97> need additional data (e.g., collection, simulation) for future values of regr \
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}[not working yet] retrain model when regr present\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}on pause\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+}
