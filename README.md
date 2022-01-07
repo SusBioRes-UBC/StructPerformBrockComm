@@ -6,4 +6,5 @@
 
 ## Dependencies
 ### Prophet (which depends on pystan): https://facebook.github.io/prophet/docs/installation.html
-- [caution] you need to install a compiler before installing pystan on Windows OS, [see solution](https://medium.com/@hamdanmridwan/quickly-setting-up-prophet-with-python-3-x-in-windows-10-ad92aaaa081d) 
+- [caution] you need to install a compiler before installing **pystan** on Windows OS --> install "Desktop development with C++" via "Microsoft Studo Build Tools". Alternatively, you can install pystan via Anaconda, [see solution](https://medium.com/@hamdanmridwan/quickly-setting-up-prophet-with-python-3-x-in-windows-10-ad92aaaa081d)
+- [caution] error when install *pip install prophet* after pystan is installed, [see solutin](https://hemantjain.medium.com/solution-for-the-error-while-installing-prophet-library-on-windows-machine-d1cc84adbafc) 
