@@ -58,7 +58,7 @@ class CLT_perform:
 		file_handler.setFormatter(formatter)
 
 		# add file handler to logger
-		self.logger.addHandler(file_handler)  
+		self.logger.addHandler(file_handler)
 
 		"""
 		=============
@@ -71,6 +71,12 @@ class CLT_perform:
 		for col_name in self.worksheet.columns:
 			self.worksheet[col_name] = self.worksheet[col_name].apply(lambda x: x.strip() if isinstance(x, str) else x)
 			self.worksheet[col_name] = self.worksheet[col_name].apply(lambda x: np.nan if x == 'NULL' else x)
+		
+		# print(type(self.worksheet.at[16796, '5-6 Floor String Pot (8917/18)']))
+		# print(self.worksheet.at[16796, '5-6 Floor String Pot (8917/18)'])
+		self.worksheet['Aggregate'] = self.worksheet.iloc[:,1:].astype(float).mean(axis=1, skipna=True)
+		print(self.worksheet)
+
 		# - create two new columns to store Date and Time separately
 		self.worksheet["DateTime"] = self.worksheet["DateTime"].apply(lambda x: dt.strptime(x[:-5], "%Y-%m-%d %H:%M:%S")) # slice to exclude timezone info
 		self.worksheet['Date'] = self.worksheet["DateTime"].apply(lambda x: x.date())
