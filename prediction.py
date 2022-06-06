@@ -12,7 +12,7 @@ fileList = os.listdir('TALLWOOD DATA/BCTW Sensor Data')
 #fileList = ['Floor 14.csv']   
 
 def append_to_excel(fpath, df, sheet_name):
-    with pd.ExcelWriter(fpath,engine='openpyxl', mode="a") as f:
+    with pd.ExcelWriter(fpath,engine='openpyxl', mode="a", if_sheet_exists='replace') as f:
         df.to_excel(f, sheet_name=sheet_name)
 
 MAE_df = pd.DataFrame()     # create MAE dataframe
