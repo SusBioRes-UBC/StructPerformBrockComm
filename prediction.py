@@ -17,7 +17,7 @@ def append_to_excel(fpath, df, sheet_name):
 MAE_df = pd.DataFrame()     # create MAE dataframe
 
 # If you want to save time by using aggregate data, you can let agg==True; If you want to iterate original dataset, use False
-agg=False
+agg=True
 
 for i in fileList:
     # prepare variables
