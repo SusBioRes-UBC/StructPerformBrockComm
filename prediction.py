@@ -9,13 +9,15 @@ from regressor_helper import RegressHelp
 
 
 fileList = os.listdir('TALLWOOD DATA/BCTW Sensor Data')
-#fileList = ['Floor 14.csv']   
 
 def append_to_excel(fpath, df, sheet_name):
     with pd.ExcelWriter(fpath,engine='openpyxl', mode="a", if_sheet_exists='replace') as f:
         df.to_excel(f, sheet_name=sheet_name)
 
 MAE_df = pd.DataFrame()     # create MAE dataframe
+
+# If you want to save time by using aggregate data, you can let agg==True; If you want to iterate original dataset, use False
+agg=False
 
 for i in fileList:
     # prepare variables
@@ -26,7 +28,7 @@ for i in fileList:
         'freq': '2H',
     }
     
-    trial_1 = CLT_perform(wb_name)
+    trial_1 = CLT_perform(wb_name, agg)
 
     climate_data_csv = os.path.sep.join([config.CLIMATE_DATA_PATH,'Haney_UBC_RF_ADMIN_climate_daily_2016-2020.csv'])
     regress_try = RegressHelp()
@@ -39,7 +41,8 @@ for i in fileList:
     nameList.remove('Date')
     nameList.remove('Time')
     #nameList = ['W 3rd Edge MC1A (8912/19)']
-    nameList = ['Aggregate']
+    if agg==True:
+        nameList = ['Aggregate']
 
     # Create prediction results DataFrame
     df = pd.DataFrame(columns=['ds', 'yhat', 'yhat_lower', 'yhat_upper'])
@@ -72,5 +75,5 @@ for i in fileList:
     append_to_excel('output.xlsx', df, i[:-4] + '_aggr')
 
 MAE_df.rename(columns = {0:'MAE'}, inplace = True)
-MAE_df.to_excel("Performance Metric - MAE.xlsx",sheet_name='MAE') 
+MAE_df.to_excel("Performance Metric - MAE.xlsx",sheet_name='MAE')
 

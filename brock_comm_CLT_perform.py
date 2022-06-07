@@ -36,7 +36,7 @@ class CLT_perform:
 	This class conducts the time-series analysis for a SINGLE csv file
 	"""
 
-	def __init__(self, csv_file_name):
+	def __init__(self, csv_file_name, agg):
 		# load datasheet
 		sheet_path = os.path.sep.join([config.DATASHEETS_PATH, csv_file_name])
 		self.worksheet = pd.read_csv(sheet_path, index_col=False)
@@ -74,8 +74,9 @@ class CLT_perform:
 		
 		# print(type(self.worksheet.at[16796, '5-6 Floor String Pot (8917/18)']))
 		# print(self.worksheet.at[16796, '5-6 Floor String Pot (8917/18)'])
-		self.worksheet['Aggregate'] = self.worksheet.iloc[:,1:].astype(float).mean(axis=1, skipna=True)
-		print(self.worksheet)
+		if agg == True:
+			self.worksheet['Aggregate'] = self.worksheet.iloc[:,1:].astype(float).mean(axis=1, skipna=True)
+			print(self.worksheet)
 
 		# - create two new columns to store Date and Time separately
 		self.worksheet["DateTime"] = self.worksheet["DateTime"].apply(lambda x: dt.strptime(x[:-5], "%Y-%m-%d %H:%M:%S")) # slice to exclude timezone info
