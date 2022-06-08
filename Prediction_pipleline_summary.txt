@@ -1,0 +1,9 @@
+The entire pipeline is developed based on original sandbox script. The input data can be selected by changing value of variable "agg",
+depending on the needs. By default, it is set to 'True' and an extra mean value column(called 'Aggregate') will be added to
+each data file, which will then be fed into the pipeline as an overall representation of each dataset. If 'False', the original data will
+pass in. The purpose of such design is to give an option for further developers if runtime is strictly prioritized over analysis accuracy.
+After the input transfer, each column data will go through the same process: adding regressors, preprocessing, training and forecasting
+and results plotting. When the iteration of a file terminates, the corresponding forecasting results('ds', 'yhat', 'yhat_lower', 'yhat_upper') will be
+written into a sheet with the corresponding floor name in the Excel file "output.xlsx". Similarly, an MAE will be generated for each floor
+and will be exported to the Excel file "Performance Metric - MAE.xlsx". Note, producing the MAE sheets only works when input data is aggregate since the MAE
+calculation is columnwise. All the Excel operations mentioned above use methods from class -- Panda ExcelWriter.

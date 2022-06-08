@@ -74,6 +74,7 @@ class CLT_perform:
 		
 		# print(type(self.worksheet.at[16796, '5-6 Floor String Pot (8917/18)']))
 		# print(self.worksheet.at[16796, '5-6 Floor String Pot (8917/18)'])
+		# adding aggregate data column-------------feel free to modify to customize calculation
 		if agg == True:
 			self.worksheet['Aggregate'] = self.worksheet.iloc[:,1:].astype(float).mean(axis=1, skipna=True)
 			print(self.worksheet)
