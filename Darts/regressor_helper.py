@@ -40,7 +40,7 @@ class RegressHelp:
 
 		# create a "ds" column
 		retained_climate_data['ds'] = retained_climate_data.index
-		retained_climate_data.reset_index()
+		#retained_climate_data.reset_index()
 
 		return retained_climate_data
 

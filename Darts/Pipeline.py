@@ -55,10 +55,10 @@ for i in fileList:
     df = pd.DataFrame(columns=['ds', 'y'])
     modelList = {
         "StatsForecastAutoARIMA": StatsForecastAutoARIMA(),
-        "AutoARIMA": AutoARIMA(),
-        "ARIMA": ARIMA(12,0,0),
-        "RegressionModel": RegressionModel(None, None, [i for i in range(-299,1)]),
-        "LightGBMModel": LightGBMModel(None, None, [i for i in range(-299,1)])
+        #"AutoARIMA": AutoARIMA(),
+        #"ARIMA": ARIMA(12,0,0),
+        #"RegressionModel": RegressionModel(None, None, [i for i in range(-299,1)]),
+        #"LightGBMModel": LightGBMModel(None, None, [i for i in range(-299,1)])
     }
     for modelName, Model in modelList.items():
         for columnName in nameList:
