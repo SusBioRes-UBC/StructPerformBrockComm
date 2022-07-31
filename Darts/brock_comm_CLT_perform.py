@@ -11,11 +11,10 @@ References:
 Import libraries
 ================
 """
-#import pmdarima as pm
+
 from darts import TimeSeries
 import pandas as pd
 import numpy as np
-from pmdarima import ARIMA
 import brock_comm_config as config
 import os
 from datetime import datetime as dt
@@ -23,13 +22,13 @@ import logging
 from sklearn.impute import SimpleImputer
 from regressor_helper import RegressHelp
 import matplotlib.pyplot as plt
-from darts.models import AutoARIMA, ARIMA, RegressionModel, StatsForecastAutoARIMA, LightGBMModel
 from sklearn.metrics import mean_absolute_error
 class Darts_CLT_Perform:
     """
     This class conducts the time-series analysis for a SINGLE csv file
     """
     def __init__(self, csv_file_name, agg):
+        self.eval_results_dict_list = []
         # load datasheet
         sheet_path = os.path.sep.join([config.DATASHEETS_PATH, csv_file_name])
         self.worksheet = pd.read_csv(sheet_path, index_col=False)
@@ -108,7 +107,7 @@ class Darts_CLT_Perform:
             self.data_for_anal.drop(columns=['y'], inplace=True)
             self.data_for_anal.rename(columns={'y_imputed': 'y'}, inplace=True)
             print(f"after imputation, there is {self.data_for_anal['y'].isna().sum()} missing pt")
-
+            
         if 'regressor_list' in kwargs:
             reg_help = RegressHelp()
             for (regressor_name_lst, regressor_df) in kwargs['regressor_list']:
@@ -125,7 +124,7 @@ class Darts_CLT_Perform:
         else:
             self.train_df = self.data_for_anal.copy()
         print(self.train_df.tail())
-
+        
     def train_forecast_eval(self, train, covariates, forecast_horizon, **kwargs):
         # print("covariates:", covariates)
         name = kwargs['Name']
@@ -133,7 +132,7 @@ class Darts_CLT_Perform:
         series = TimeSeries.from_dataframe(train, 'ds','y', fill_missing_dates=True, freq='H',fillna_value=0)
         # print("series:", series)
         p = series
-        if name == "ARIMA" or name == "AutoARIMA" or name == "StatsForecastAutoARIMA": 
+        if name == "ARIMA" or name == "AutoARIMA": 
             m.fit(series, covariates)
             p = m.predict(forecast_horizon, covariates)
         if name == "RegressionModel" or name == "LightGBMModel": 
@@ -142,9 +141,10 @@ class Darts_CLT_Perform:
         #print(p)
         self.forecast_results = p.pd_dataframe().rename_axis('ds').reset_index()
         print(self.forecast_results)
-
+        
         if 'groundtruth' in kwargs:
             self.eval_results_dict = self.eval_model(kwargs['groundtruth'], self.forecast_results, forecast_horizon)
+            self.eval_results_dict_list.append(name + "_" + str(self.eval_results_dict))
             # log the evaluation results
             for method, result in self.eval_results_dict.items():
                 self.logger.info(f"{method}: {result}")                    
@@ -159,14 +159,24 @@ class Darts_CLT_Perform:
         #print(f"forecast_results is {forecast_results['yhat'].shape}")
         return {'MAE': mean_absolute_error(groundtruth['y'], forecast_results['y'][-forecast_horizon:])}    
     
-    def plot_results(self, fig_name, forecast_results, **kwargs):
+    def plot_results(self, fig_name, MAE_dict, **kwargs):
         """
         use the built-in plotting method to plot the forecast results, see: https://unit8co.github.io/darts/generated_api/darts.timeseries.html#darts.timeseries.TimeSeries.plot
         """
-        p = forecast_results.plot(label='Name' in kwargs)
-        plt.legend()
-        p.figure.savefig(os.path.sep.join([config.OUTPUT_PATH,'{}.png'.format(fig_name)]), dpi=600)
-#1  1 random/selected model + all floors input parameters       return a figure MAE for all floors for this specific model, output should overlap around some constant
-#2  forecast results(MAE) for one single random/selected floor multiple models
-
-#3   make df for all results      keep MAE
+        plt.figure(figsize=(10, 8))
+        for mae in MAE_dict:               
+            MAE_floor_list = []
+            MAE_value_list = []
+            for m_d in MAE_dict[mae]:
+                floor = list(m_d.keys())[0]
+                val = list(m_d.values())[0]
+                MAE_floor_list.append(floor)
+                MAE_value_list.append(val)
+            
+            plt.plot(MAE_floor_list, MAE_value_list,label=mae)
+            
+        plt.xlabel("floor")
+        plt.ylabel("MAE")
+        plt.legend(loc='best')
+        plt.savefig(os.path.sep.join([config.OUTPUT_PATH,'{}.png'.format(fig_name)]), dpi=600)
+        plt.show()
