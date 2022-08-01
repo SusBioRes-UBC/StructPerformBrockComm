@@ -15,12 +15,12 @@ Import libraries
 from darts import TimeSeries
 import pandas as pd
 import numpy as np
-import brock_comm_config as config
+import Darts.brock_comm_config as config
 import os
 from datetime import datetime as dt
 import logging
 from sklearn.impute import SimpleImputer
-from regressor_helper import RegressHelp
+from Darts.regressor_helper import RegressHelp
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_absolute_error
 class Darts_CLT_Perform:

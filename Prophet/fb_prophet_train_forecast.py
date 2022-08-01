@@ -4,8 +4,8 @@ This class trains a FB Prophet model, makes the forecast and evaluate the result
 Reference: https://www.kaggle.com/kmkarakaya/missing-data-and-time-series-prediction-by-prophet
 """
 
-import brock_comm_config as config
-from regressor_helper import RegressHelp
+import Prophet.brock_comm_config as config
+from Prophet.regressor_helper import RegressHelp
 from prophet import Prophet
 from sklearn.metrics import mean_absolute_error
 import os

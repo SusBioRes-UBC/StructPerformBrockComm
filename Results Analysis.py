@@ -16,12 +16,24 @@ import os
 from Prophet.prediction import MAE_df 
 from Darts.Final_Pipeline import MAE_dict 
 
+#print(MAE_dict)
+#print(MAE_df)
 class Results_Analysis:
-    Prophet_MAE_df = MAE_df
 
-    def MAE_Line_Plot(self, **kwargs):
+    def __init__(self):
+        self.Prophet_MAE_df = MAE_df
+
+    def MAE_Line_Plot(self):
         plt.figure(figsize=(10, 8))
-        for mae in MAE_dict:               
+        new_MAE_dict = MAE_dict
+        new_MAE_dict["Prophet"] =  []
+        
+        for i in range(self.Prophet_MAE_df.shape[0]):
+            new_MAE_dict["Prophet"].append({self.Prophet_MAE_df.iloc[i][0], self.Prophet_MAE_df.iloc[i][1]})
+
+        print(new_MAE_dict)
+
+        for mae in new_MAE_dict:               
             MAE_floor_list = []
             MAE_value_list = []
             for m_d in MAE_dict[mae]:
@@ -40,4 +52,9 @@ class Results_Analysis:
     
     def Forecasts_Line_Plot(self, **kwargs):
         print("")
+
+RA = Results_Analysis()  
+RA.MAE_Line_Plot()
+    
+    
 

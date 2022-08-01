@@ -19,16 +19,16 @@ Import libraries
 #import pmdarima as pm
 import pandas as pd
 import numpy as np
-import brock_comm_config as config
+import Prophet.brock_comm_config as config
 import os
 from datetime import datetime as dt
 import logging
 from copy import deepcopy
-from fb_prophet_train_forecast import FB_prophet_train_forecast
+from Prophet.fb_prophet_train_forecast import FB_prophet_train_forecast
 from sklearn.impute import SimpleImputer
 import json
 from prophet.serialize import model_to_json, model_from_json
-from regressor_helper import RegressHelp
+from Prophet.regressor_helper import RegressHelp
 
 
 class CLT_perform:
