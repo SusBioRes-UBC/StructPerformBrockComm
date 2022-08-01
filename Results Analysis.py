@@ -29,7 +29,8 @@ class Results_Analysis:
         new_MAE_dict["Prophet"] =  []
         
         for i in range(self.Prophet_MAE_df.shape[0]):
-            new_MAE_dict["Prophet"].append({self.Prophet_MAE_df.iloc[i][0], self.Prophet_MAE_df.iloc[i][1]})
+            d = {self.Prophet_MAE_df.iloc[i][0]: self.Prophet_MAE_df.iloc[i][1]}
+            new_MAE_dict["Prophet"].append(d)
 
         print(new_MAE_dict)
 
@@ -51,6 +52,8 @@ class Results_Analysis:
         plt.show()
     
     def Forecasts_Line_Plot(self, **kwargs):
+
+        
         print("")
 
 RA = Results_Analysis()  
