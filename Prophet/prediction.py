@@ -16,6 +16,7 @@ def append_to_excel(fpath, df, sheet_name):
         df.to_excel(f, sheet_name=sheet_name)
 
 MAE_df = pd.DataFrame()     # create MAE dataframe
+forecast_dict = {}
 
 # If you want to save time by using aggregate data, you can let agg==True; If you want to iterate original dataset, use False
 agg=True
@@ -57,7 +58,7 @@ for i in fileList:
         trial_1.train_N_forecast(trial_1.train_df,forecast_params,regressor_list=regressor_lst,regr_future=trial_1.test_df, groundtruth=trial_1.test_df)
        
         # initialize list of lists
-        data = trial_1.forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]
+        data = trial_1.forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(300)
         df = df.append(data, ignore_index=True)
         #print(df)
 
@@ -71,6 +72,9 @@ for i in fileList:
     df_dictionary = df_dictionary.loc[:,~df_dictionary.columns.duplicated()].reset_index()
     MAE_df = MAE_df.loc[:,~MAE_df.columns.duplicated()].reset_index(drop=True).append(df_dictionary)
     #print(MAE_df)
+    
+    #add forecast df to dict
+    forecast_dict[i[:-4]] = df.rename(columns={'yhat': 'y'})
     
     #produce prediction sheet
     append_to_excel('Prophet\output.xlsx', df, i[:-4] + '_aggr')

@@ -33,8 +33,9 @@ MAE_df = pd.DataFrame()     # create MAE dataframe
 agg=True
 
 MAE_dict = {}
-prediction_dict = {}
 model_mae_dict = {}
+prediction_dict = {}
+forecasts_all_dict = {}
 
 index = 0
 for i in fileList:
@@ -105,8 +106,11 @@ for i in fileList:
             MAE_dict[category] = [example_dict]
     
     # Make Prediction results sheets
-    #print(prediction_dict)
+    print(prediction_dict)
+    forecasts_all_dict[i[:-4]] = prediction_dict
+
     for m, dataframe in prediction_dict.items():
+
         #produce prediction results sheet
         if agg: sheet_name_tail = "aggr"
         else :  sheet_name_tail = ""
