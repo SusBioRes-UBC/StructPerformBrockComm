@@ -25,8 +25,8 @@ def append_to_excel(fpath, df, sheet_name):
     with pd.ExcelWriter(fpath,engine='openpyxl', mode="a", if_sheet_exists='replace') as f:
         df.to_excel(f, sheet_name=sheet_name)
 
-#fileList = os.listdir('TALLWOOD DATA/BCTW Sensor Data')
-fileList = ["Floor 3.csv", "Floor 4.csv"]
+fileList = os.listdir('TALLWOOD DATA/BCTW Sensor Data')
+#fileList = ["Floor 3.csv", "Floor 4.csv"]
 MAE_df = pd.DataFrame()     # create MAE dataframe
 
 # If you want to save time by using aggregate data, you can let agg==True; If you want to iterate original dataset, use False
@@ -36,7 +36,6 @@ MAE_dict = {}
 model_mae_dict = {}
 prediction_dict = {}
 forecasts_all_dict = {}
-
 index = 0
 for i in fileList:
     # prepare variables
@@ -66,9 +65,9 @@ for i in fileList:
 
     modelList = {
         #"AutoARIMA": AutoARIMA(),
-        #"ARIMA": ARIMA(12,0,0),
+        "ARIMA": ARIMA(12,0,0),
         "RegressionModel": RegressionModel(None, None, [i for i in range(-299,1)]),
-        #"LightGBMModel": LightGBMModel(None, None, [i for i in range(-299,1)])
+        "LightGBMModel": LightGBMModel(None, None, [i for i in range(-299,1)])
     }
 
     modelNameList = []
@@ -106,17 +105,20 @@ for i in fileList:
             MAE_dict[category] = [example_dict]
     
     # Make Prediction results sheets
-    print(prediction_dict)
-    forecasts_all_dict[i[:-4]] = prediction_dict
-
+    #print(prediction_dict)
+    
     for m, dataframe in prediction_dict.items():
 
         #produce prediction results sheet
         if agg: sheet_name_tail = "aggr"
         else :  sheet_name_tail = ""
         append_to_excel('Darts\output.xlsx', dataframe, i[:-4] + "-" + m + "-" + sheet_name_tail)
+    
+    forecasts_all_dict[i[:-4]] = prediction_dict
+    prediction_dict = {}
 
 trial_1.plot_results('MAE', MAE_dict, Name = modelNameList)
+print(forecasts_all_dict)
 
 """
 ================

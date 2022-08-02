@@ -8,8 +8,8 @@ from  Prophet.brock_comm_CLT_perform import CLT_perform
 from  Prophet.regressor_helper import RegressHelp
 
 
-#fileList = os.listdir('TALLWOOD DATA/BCTW Sensor Data')
-fileList = ["Floor 3.csv", "Floor 4.csv"]
+fileList = os.listdir('TALLWOOD DATA/BCTW Sensor Data')
+#fileList = ["Floor 3.csv", "Floor 4.csv"]
 
 def append_to_excel(fpath, df, sheet_name):
     with pd.ExcelWriter(fpath,engine='openpyxl', mode="a", if_sheet_exists='replace') as f:
@@ -58,9 +58,9 @@ for i in fileList:
         trial_1.train_N_forecast(trial_1.train_df,forecast_params,regressor_list=regressor_lst,regr_future=trial_1.test_df, groundtruth=trial_1.test_df)
        
         # initialize list of lists
-        data = trial_1.forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(300)
+        data = trial_1.forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(forecast_horizon)
         df = df.append(data, ignore_index=True)
-        #print(df)
+        print(df)
 
         trial_1.plot_results('in-sample forecast results_with regr', trial_1.trained_model, trial_1.forecast_results)
         print('This is the forecast in ' + i)

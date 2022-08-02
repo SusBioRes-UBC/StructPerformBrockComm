@@ -13,8 +13,9 @@ import matplotlib.pyplot as plt
 import plot_config as config
 import pandas as pd
 import os
-from Prophet.prediction import MAE_df, forecast_dict
+
 from Darts.Final_Pipeline import MAE_dict, forecasts_all_dict
+from Prophet.prediction import MAE_df, forecast_dict
 
 class Results_Analysis:
 
@@ -54,6 +55,8 @@ class Results_Analysis:
         plt.show()
 
     def Forecasts_Line_Plot(self):
+        print(forecasts_all_dict)
+        print(forecast_dict)
         plt.figure(figsize=(10, 8))
         all_forecasts = {}
 
@@ -78,6 +81,6 @@ class Results_Analysis:
 RA = Results_Analysis()  
 RA.MAE_Line_Plot()
 RA.Forecasts_Line_Plot()
-    
+  
     
 
