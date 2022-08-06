@@ -11,19 +11,16 @@ Import libraries
 """
 import matplotlib.pyplot as plt
 import plot_config as config
-import pandas as pd
 import os
-
-from Darts.Final_Pipeline import MAE_dict, forecasts_all_dict
-from Prophet.prediction import MAE_df, forecast_dict
 
 class Results_Analysis:
 
-    def __init__(self):
-        self.Prophet_MAE_df = MAE_df
-        self.Darts_MAE_dict = MAE_dict
-        self.Prophet_forecast_results_dict = forecast_dict
-        self.Darts_forecast_results_dict = forecasts_all_dict
+    def __init__(self, **kwargs):
+        self.Prophet_MAE_df = kwargs['MAE_df']
+        self.Darts_MAE_dict = kwargs['MAE_dict']
+        self.Prophet_forecast_results_dict = kwargs['forecast_dict']
+        self.Darts_forecast_results_dict = kwargs['forecasts_all_dict']
+        self.groundtruth_dict = kwargs['groundtruth_dict']
 
     def MAE_Line_Plot(self):
         plt.figure(figsize=(10, 8))
@@ -55,8 +52,8 @@ class Results_Analysis:
         plt.show()
 
     def Forecasts_Line_Plot(self):
-        print(forecasts_all_dict)
-        print(forecast_dict)
+        #print(self.Prophet_forecast_results_dict)
+        #print(self.Darts_forecast_results_dict)
         plt.figure(figsize=(10, 8))
         all_forecasts = {}
 
@@ -67,6 +64,7 @@ class Results_Analysis:
         print(all_forecasts)
 
         for fkey, m_df_dict in all_forecasts.items():
+            plt.plot(self.groundtruth_dict[fkey]['ds'], self.groundtruth_dict[fkey]['y'], label = 'groundtruth')
             for modelkey, results_df in m_df_dict.items():
                 plt.plot(results_df['ds'], results_df['y'], label = modelkey)
 
@@ -78,9 +76,6 @@ class Results_Analysis:
             plt.savefig(os.path.sep.join([config.OUTPUT_PATH, str(fkey) + " forecasts.png"]), dpi=600)
             plt.show()
 
-RA = Results_Analysis()  
-RA.MAE_Line_Plot()
-RA.Forecasts_Line_Plot()
   
     
 

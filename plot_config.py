@@ -1,5 +1,5 @@
 """
-This config file stores 
+This config file stores the plot figure configuration
 """
 
 # path to output files
