@@ -18,7 +18,7 @@ import Darts.brock_comm_config as config
 from Darts.brock_comm_CLT_perform import Darts_CLT_Perform
 from Darts.regressor_helper import RegressHelp
 from darts import TimeSeries
-from darts.models import AutoARIMA, ARIMA, RegressionModel, LightGBMModel
+from darts.models import ARIMA, RegressionModel, LightGBMModel
 
 
 def Darts_Pipeline():
@@ -29,7 +29,6 @@ def Darts_Pipeline():
 
     fileList = os.listdir('TALLWOOD DATA/BCTW Sensor Data')
     #fileList = ["Floor 3.csv", "Floor 4.csv"]
-    MAE_df = pd.DataFrame()     # create MAE dataframe
     
     # If you want to save time by using aggregate data, you can let agg==True; If you want to iterate original dataset, use False
     agg=True
@@ -66,7 +65,6 @@ def Darts_Pipeline():
             nameList = ['Aggregate']
     
         modelList = {
-            #"AutoARIMA": AutoARIMA(),
             "ARIMA": ARIMA(12,0,0),
             "RegressionModel": RegressionModel(None, None, [i for i in range(-299,1)]),
             "LightGBMModel": LightGBMModel(None, None, [i for i in range(-299,1)])
