@@ -132,7 +132,7 @@ class Darts_CLT_Perform:
         series = TimeSeries.from_dataframe(train, 'ds','y', fill_missing_dates=True, freq='H',fillna_value=0)
         # print("series:", series)
         p = series
-        if name == "ARIMA" or name == "AutoARIMA": 
+        if name == "ARIMA": 
             m.fit(series, covariates)
             p = m.predict(forecast_horizon, covariates)
         if name == "RegressionModel" or name == "LightGBMModel": 

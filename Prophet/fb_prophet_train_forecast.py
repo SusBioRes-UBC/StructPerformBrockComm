@@ -16,7 +16,7 @@ from prophet.serialize import model_to_json, model_from_json
 
 class FB_prophet_train_forecast:
 
-    def train_forecast(self,train,forecast_params,**kwargs):
+    def train_forecast(self,train,forecast_params, **kwargs):
         """
         Arguments:
             - train: training data, df('ds', 'y')
@@ -93,11 +93,8 @@ class FB_prophet_train_forecast:
             
             # make prediction
             forecast = m.predict(future)
-            
 
-        #forecast = forecast[['ds', 'yhat']]
-
-        #forecast = forecast[-forecast_horizon:] 
+        #forecast = forecast[-forecast_params['periods']:] 
         #print(f"shape of forecast obj: {forecast.shape}")
         
         print(f"tail of forecast results: {forecast[['ds', 'yhat']].tail()}")

@@ -19,6 +19,8 @@ from Darts.brock_comm_CLT_perform import Darts_CLT_Perform
 from Darts.regressor_helper import RegressHelp
 from darts import TimeSeries
 from darts.models import ARIMA, RegressionModel, LightGBMModel
+from sklearn.metrics import mean_absolute_error
+import numpy as np
 
 
 def Darts_Pipeline():
@@ -64,10 +66,19 @@ def Darts_Pipeline():
         if agg==True:
             nameList = ['Aggregate']
     
+        gbmparam = {
+            'lags': [[i for i in range(-300,0)]],
+            'lags_past_covariates': [[i for i in range(-300,0)]],
+            'lags_future_covariates': [[i for i in range(-300,0)]],
+            'output_chunk_length': [300]
+        }
+
         modelList = {
-            "ARIMA": ARIMA(12,0,0),
-            "RegressionModel": RegressionModel(None, None, [i for i in range(-299,1)]),
-            "LightGBMModel": LightGBMModel(None, None, [i for i in range(-299,1)])
+            "ARIMA": ARIMA(10,0,0),
+            "RegressionModel": RegressionModel(None, None, [i for i in range(-(forecast_horizon-1),1)]),
+            "LightGBMModel": LightGBMModel(None, None, [i for i in range(-(forecast_horizon-1),1)])
+            #"RegressionModel": RegressionModel(None, None, [i for i in range(-300,1)]),
+            #"LightGBMModel": LightGBMModel([i for i in range(-300,0)], [i for i in range(-300,0)], [i for i in range(-300,0)], 300)
         }
     
         modelNameList = []
@@ -78,6 +89,28 @@ def Darts_Pipeline():
                 # Create prediction results DataFrame
                 df = pd.DataFrame(columns=['ds', 'y'])
                 trial_1.preprocess(col_name=columnName, in_sample_forecast=True, forecast_horizon=forecast_horizon, impute='mean', regressor_list=regressor_lst)
+                t = trial_1.train_df.copy()
+                #t.columns = [c for c in t.columns if c not in ['ds']]
+                t['ds'] = pd.to_numeric(pd.to_datetime(t['ds']))
+                #print(trial_1.test_df['ds'][0])
+                '''
+                gridmodel = Model.gridsearch(
+                    parameters = gbmparam,
+                    series =  TimeSeries.from_dataframe(t, fill_missing_dates=True, freq='H', fillna_value=0),
+                    past_covariates = cov_series,
+                    future_covariates = cov_series,
+                    forecast_horizon = forecast_horizon,
+                    stride=1, 
+                    start=0.1, 
+                    last_points_only=False, 
+                    #val_series=TimeSeries.from_dataframe(t1), 
+                    #use_fitted_values=True, 
+                    metric = mean_absolute_error, 
+                    reduction=np.mean, 
+                    verbose=True, 
+                    n_jobs=1, 
+                    n_random_samples=None
+                )'''
                 trial_1.train_forecast_eval(trial_1.train_df, cov_series, forecast_horizon, groundtruth=trial_1.test_df, Name=modelName, model=Model)
                 data = trial_1.forecast_results[['ds', 'y']]
                 df = df.append(data, ignore_index=True)

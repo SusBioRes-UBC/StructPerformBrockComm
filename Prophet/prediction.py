@@ -60,7 +60,7 @@ def Prophet_Pipeline():
             df = df.append(data, ignore_index=True)
             print(df)
     
-            trial_1.plot_results('in-sample forecast results_with regr', trial_1.trained_model, trial_1.forecast_results)
+            trial_1.plot_results(i[:-4] +' in-sample forecast results_with regr', trial_1.trained_model, trial_1.forecast_results)
             print('This is the forecast in ' + i)
     
         #produce MAE sheet

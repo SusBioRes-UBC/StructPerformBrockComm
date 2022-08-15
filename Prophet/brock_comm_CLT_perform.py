@@ -23,7 +23,6 @@ import Prophet.brock_comm_config as config
 import os
 from datetime import datetime as dt
 import logging
-from copy import deepcopy
 from Prophet.fb_prophet_train_forecast import FB_prophet_train_forecast
 from sklearn.impute import SimpleImputer
 import json
@@ -140,16 +139,16 @@ class CLT_perform:
 
 		# prepare training and test data
 		if in_sample_forecast:
-			self.train_df = self.data_for_anal[:-forecast_horizon] #.copy() # use copy(), otherwise you will get 'SettingWithCopyWarning' when try to add new columns
-			self.test_df =  self.data_for_anal[-forecast_horizon:] #.copy()
+			self.train_df = self.data_for_anal[:-forecast_horizon].copy() # use copy(), otherwise you will get 'SettingWithCopyWarning' when try to add new columns
+			self.test_df =  self.data_for_anal[-forecast_horizon:].copy()
 		else:
-			self.train_df = self.data_for_anal #.copy()
+			self.train_df = self.data_for_anal.copy()
 		print(self.train_df.tail())
 
 
-	def train_N_forecast(self,train,forecast_params,**kwargs):
+	def train_N_forecast(self,train,forecast_param,**kwargs):
 		self.forecast_obj = FB_prophet_train_forecast()
-		self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train,forecast_params, **kwargs)
+		self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train, forecast_param, **kwargs)
 
 		# check if retrain an existing model
 		if 'trained_model' in kwargs:
@@ -173,8 +172,6 @@ class CLT_perform:
 		"""
 		use the built-in plotting method to plot the forecast results, see: https://facebook.github.io/prophet/docs/quick_start.html#python-api
 		"""
-
-		#trained_model.plot(forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']]).savefig(os.path.sep.join([config.OUTPUT_PATH,'forecast_result.png']), dpi=600)
 
 		fig = trained_model.plot(forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']])
 		ax = fig.gca()

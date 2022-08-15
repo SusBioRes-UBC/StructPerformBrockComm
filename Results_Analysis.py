@@ -10,7 +10,6 @@ Import libraries
 ================
 """
 import matplotlib.pyplot as plt
-import plot_config as config
 import os
 
 class Results_Analysis:
@@ -22,7 +21,7 @@ class Results_Analysis:
         self.Darts_forecast_results_dict = kwargs['forecasts_all_dict']
         self.groundtruth_dict = kwargs['groundtruth_dict']
 
-    def MAE_Line_Plot(self):
+    def MAE_Line_Plot(self, output_path):
         plt.figure(figsize=(10, 8))
         MAE_all_dict = self.Darts_MAE_dict
         MAE_all_dict["Prophet"] =  []
@@ -48,12 +47,14 @@ class Results_Analysis:
         plt.ylabel("MAE")
         plt.legend(loc='best')
         plt.tight_layout()
-        plt.savefig(os.path.sep.join([config.OUTPUT_PATH,'{}.png'.format("MAE")]), dpi=600)
+        plt.savefig(os.path.sep.join([output_path,'{}.png'.format("MAE")]), dpi=600)
         plt.show()
 
-    def Forecasts_Line_Plot(self):
+    def Forecasts_Line_Plot(self, output_path):
+        
         #print(self.Prophet_forecast_results_dict)
         #print(self.Darts_forecast_results_dict)
+        
         plt.figure(figsize=(10, 8))
         all_forecasts = {}
 
@@ -73,9 +74,27 @@ class Results_Analysis:
             plt.ylabel("yhat")
             plt.legend(loc='best')
             plt.tight_layout()
-            plt.savefig(os.path.sep.join([config.OUTPUT_PATH, str(fkey) + " forecasts.png"]), dpi=600)
+            plt.savefig(os.path.sep.join([output_path, str(fkey) + " forecasts.png"]), dpi=600)
             plt.show()
 
-  
+'''
+#   only for Prophet forecast visualization, delete below if needed
+        plt.figure(figsize=(10, 8))
+    
+        for fkey, results_df in self.Prophet_forecast_results_dict.items():
+            plt.plot(self.groundtruth_dict[fkey]['ds'], self.groundtruth_dict[fkey]['y'], label = 'groundtruth') 
+            plt.plot(results_df['ds'], results_df['y'], label = 'yhat')
+            plt.plot(results_df['ds'], results_df['yhat_lower'], label = 'yhat_lower')
+            plt.plot(results_df['ds'], results_df['yhat_upper'], label = 'yhat_upper')
+            plt.fill_between(results_df['ds'], results_df['yhat_lower'], results_df['yhat_upper'], color='y', alpha=.5)
+    
+            #groundtruth to add
+            plt.xlabel("timestamp")
+            plt.ylabel("y")
+            plt.legend(loc='best')
+            plt.tight_layout()
+            plt.savefig(os.path.sep.join([output_path, str(fkey) + " forecasts.png"]), dpi=600)
+            plt.show()
+'''  
     
 
