@@ -74,7 +74,7 @@ def Darts_Pipeline():
         }
 
         modelList = {
-            "ARIMA": ARIMA(10,0,0),
+            "ARIMA": ARIMA(12,0,0),
             "RegressionModel": RegressionModel(None, None, [i for i in range(-(forecast_horizon-1),1)]),
             "LightGBMModel": LightGBMModel(None, None, [i for i in range(-(forecast_horizon-1),1)])
             #"RegressionModel": RegressionModel(None, None, [i for i in range(-300,1)]),

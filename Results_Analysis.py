@@ -21,7 +21,7 @@ class Results_Analysis:
         self.Darts_forecast_results_dict = kwargs['forecasts_all_dict']
         self.groundtruth_dict = kwargs['groundtruth_dict']
 
-    def MAE_Line_Plot(self, output_path):
+    def MAE_Line_Plot(self, **kwargs):
         plt.figure(figsize=(10, 8))
         MAE_all_dict = self.Darts_MAE_dict
         MAE_all_dict["Prophet"] =  []
@@ -47,10 +47,10 @@ class Results_Analysis:
         plt.ylabel("MAE")
         plt.legend(loc='best')
         plt.tight_layout()
-        plt.savefig(os.path.sep.join([output_path,'{}.png'.format("MAE")]), dpi=600)
+        plt.savefig(os.path.sep.join([kwargs['output_path'],'{}.png'.format("MAE")]), dpi=600)
         plt.show()
 
-    def Forecasts_Line_Plot(self, output_path):
+    def Forecasts_Line_Plot(self, **kwargs):
         
         #print(self.Prophet_forecast_results_dict)
         #print(self.Darts_forecast_results_dict)
@@ -74,7 +74,7 @@ class Results_Analysis:
             plt.ylabel("yhat")
             plt.legend(loc='best')
             plt.tight_layout()
-            plt.savefig(os.path.sep.join([output_path, str(fkey) + " forecasts.png"]), dpi=600)
+            plt.savefig(os.path.sep.join([kwargs['output_path'], str(fkey) + " forecasts.png"]), dpi=600)
             plt.show()
 
 '''
@@ -93,7 +93,7 @@ class Results_Analysis:
             plt.ylabel("y")
             plt.legend(loc='best')
             plt.tight_layout()
-            plt.savefig(os.path.sep.join([output_path, str(fkey) + " forecasts.png"]), dpi=600)
+            plt.savefig(os.path.sep.join([kwargs['output_path'], str(fkey) + " forecasts.png"]), dpi=600)
             plt.show()
 '''  
     

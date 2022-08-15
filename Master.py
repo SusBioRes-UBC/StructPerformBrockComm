@@ -21,8 +21,8 @@ MAE_dict, forecasts_all_dict = Darts_Pipeline()
 RA = Results_Analysis(MAE_dict = MAE_dict, forecasts_all_dict = forecasts_all_dict,
                       MAE_df = MAE_df, forecast_dict = forecast_dict, groundtruth_dict = groundtruth_dict
                       )  
-RA.MAE_Line_Plot('output')
-RA.Forecasts_Line_Plot('output')
+RA.MAE_Line_Plot(output_path='output')
+RA.Forecasts_Line_Plot(output_path='output')
 
 '''
 
