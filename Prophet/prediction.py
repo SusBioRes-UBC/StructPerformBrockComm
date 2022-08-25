@@ -53,7 +53,8 @@ def Prophet_Pipeline():
                 'MEAN_TEMPERATURE': lambda x: x,
                 'TOTAL_PRECIPITATION': lambda x: x,
             }
-            trial_1.train_N_forecast(trial_1.train_df,forecast_params,regressor_list=regressor_lst,regr_future=trial_1.test_df, groundtruth=trial_1.test_df)
+            # default using hyperparameter, otherwise set the third argument to False
+            trial_1.train_N_forecast(trial_1.train_df, forecast_params, True, regressor_list=regressor_lst,regr_future=trial_1.test_df, groundtruth=trial_1.test_df)
            
             # initialize list of lists
             data = trial_1.forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(forecast_horizon)

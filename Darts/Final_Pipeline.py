@@ -19,7 +19,6 @@ from Darts.brock_comm_CLT_perform import Darts_CLT_Perform
 from Darts.regressor_helper import RegressHelp
 from darts import TimeSeries
 from darts.models import ARIMA, RegressionModel, LightGBMModel
-from sklearn.metrics import mean_absolute_error
 import numpy as np
 
 
@@ -32,7 +31,7 @@ def Darts_Pipeline():
     fileList = os.listdir('TALLWOOD DATA/BCTW Sensor Data')
     #fileList = ["Floor 3.csv", "Floor 4.csv"]
     
-    # If you want to save time by using aggregate data, you can let agg==True; If you want to iterate original dataset, use False
+    # If you want to save running time by using aggregate data, set agg==True; otherwise iterate the orginal complete dataset using False
     agg=True
     
     MAE_dict = {}
@@ -65,13 +64,14 @@ def Darts_Pipeline():
         #nameList = ['W 3rd Edge MC1A (8912/19)']
         if agg==True:
             nameList = ['Aggregate']
-    
+        
+        ''''
         gbmparam = {
             'lags': [[i for i in range(-300,0)]],
             'lags_past_covariates': [[i for i in range(-300,0)]],
             'lags_future_covariates': [[i for i in range(-300,0)]],
             'output_chunk_length': [300]
-        }
+        }'''
 
         modelList = {
             "ARIMA": ARIMA(12,0,0),

@@ -16,9 +16,9 @@ class Results_Analysis:
 
     def __init__(self, **kwargs):
         self.Prophet_MAE_df = kwargs['MAE_df']
-        self.Darts_MAE_dict = kwargs['MAE_dict']
+        #self.Darts_MAE_dict = kwargs['MAE_dict']
         self.Prophet_forecast_results_dict = kwargs['forecast_dict']
-        self.Darts_forecast_results_dict = kwargs['forecasts_all_dict']
+        #self.Darts_forecast_results_dict = kwargs['forecasts_all_dict']
         self.groundtruth_dict = kwargs['groundtruth_dict']
 
     def MAE_Line_Plot(self, **kwargs):
@@ -51,6 +51,7 @@ class Results_Analysis:
         plt.show()
 
     def Forecasts_Line_Plot(self, **kwargs):
+        '''
         
         #print(self.Prophet_forecast_results_dict)
         #print(self.Darts_forecast_results_dict)
@@ -93,8 +94,8 @@ class Results_Analysis:
             plt.ylabel("y")
             plt.legend(loc='best')
             plt.tight_layout()
-            plt.savefig(os.path.sep.join([kwargs['output_path'], str(fkey) + " forecasts.png"]), dpi=600)
+            plt.savefig(os.path.sep.join([kwargs['output_path'], str(fkey) + " future forecasts.png"]), dpi=600)
             plt.show()
-'''  
+  
     
 

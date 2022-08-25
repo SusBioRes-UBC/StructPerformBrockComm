@@ -12,11 +12,13 @@ import os
 import pandas as pd
 import json
 from prophet.serialize import model_to_json, model_from_json
+from sklearn.model_selection import ParameterGrid
+import numpy as np
 
 
 class FB_prophet_train_forecast:
 
-    def train_forecast(self,train,forecast_params, **kwargs):
+    def train_forecast(self,train,forecast_params, use_hyperparam, **kwargs):
         """
         Arguments:
             - train: training data, df('ds', 'y')
@@ -25,6 +27,14 @@ class FB_prophet_train_forecast:
             - kwargs['regressor_trans_func']: a dict of transformation fucntions for regressors, {'regressor_name': func, ...}
         """
         self.forecast_horizon = forecast_params['periods']
+
+        # prepare parameter grid if using hyperparameter tuning
+        if use_hyperparam == True:
+            params_grid = {'seasonality_mode':('multiplicative','additive'),
+                           'changepoint_prior_scale':[0.001, 0.05, 0.1],
+                           'seasonality_prior_scale' : [0.01, 1.0, 10.0]}
+            grid = ParameterGrid(params_grid)
+            model_parameters = pd.DataFrame(columns = ['MAE','Parameters'])
 
         # check if retrain an existing model, see: https://facebook.github.io/prophet/docs/additional_topics.html#updating-fitted-models
         if 'trained_model' in kwargs:
@@ -38,63 +48,166 @@ class FB_prophet_train_forecast:
                 res[pname] = m.params[pname][0][0]
             for pname in ['delta', 'beta']:
                 res[pname] = m.params[pname][0]
-            # retrain model
-            m = Prophet().fit(train, init=res)
-            # make forecast
+
+            # do hyperparameter gridsearch and find the best parameters
+            for p in grid:
+                np.random.seed(0)
+                m = Prophet(
+                    changepoint_prior_scale = p['changepoint_prior_scale'],
+                    seasonality_prior_scale = p['seasonality_prior_scale'],
+                    seasonality_mode = p['seasonality_mode'],
+                    weekly_seasonality=True,
+                    daily_seasonality = True,
+                    yearly_seasonality = True, 
+                    interval_width=0.95
+                ).fit(train, init=res)
+                # make forecast
+                future = m.make_future_dataframe(**forecast_params)
+                forecast = m.predict(future)
+                MAE = self.eval_model(kwargs['groundtruth'], forecast)['MAE']
+                model_parameters = model_parameters.append({'MAE':MAE,'Parameters':p},ignore_index=True)
+            
+            # sort the hyperparameters set based on MAE
+            parameters = model_parameters.sort_values(by=['MAE']).reset_index(drop=True)
+            parameters.head()
+
+            # retrain and predict using the best parameters
+            parameters['Parameters'][0]
+            m = Prophet(
+                    changepoint_prior_scale = parameters['Parameters'][0]['changepoint_prior_scale'],
+                    seasonality_prior_scale = parameters['Parameters'][0]['seasonality_prior_scale'],
+                    seasonality_mode = parameters['Parameters'][0]['seasonality_mode'],
+                    weekly_seasonality=True,
+                    daily_seasonality = True,
+                    yearly_seasonality = True, 
+                    interval_width=0.95
+                ).fit(train, init=res)
+                # make forecast
             future = m.make_future_dataframe(**forecast_params)
             forecast = m.predict(future)
             
         else:
-            m = Prophet()
-            if 'regressor_list' in kwargs:
-                #reg_help = RegressHelp()
-                for (regressor_name_lst, _) in kwargs['regressor_list']:
-                    # match the timestep between regressor and time series; regressor_tuple([regressor_col_name1,...,regressor_col_nameN], regressor_dataframe)
-                    #adjusted_regr, train = reg_help.matching_regr_data(regressor_df, train)
-                    for regressor_name in regressor_name_lst:
-                        # add regressor data to training dataframe
-                        #train[regressor_name] = adjusted_regr[regressor_name].values
-                        #print(f"there is {sum(train[regressor_name].isna())} NaN in {train[regressor_name]}")
-                        #print(f"tail values for {regressor_name} is {train[regressor_name].tail()}")
+                if 'regressor_list' in kwargs:
 
-                        # add regressor to the model
-                        m.add_regressor(regressor_name)
+                    for p in grid:
+                        np.random.seed(0)
+                        m = Prophet(
+                            changepoint_prior_scale = p['changepoint_prior_scale'],
+                            seasonality_prior_scale = p['seasonality_prior_scale'],
+                            seasonality_mode = p['seasonality_mode'],
+                            weekly_seasonality=True,
+                            daily_seasonality = True,
+                            yearly_seasonality = True, 
+                            interval_width=0.95
+                        )
 
-                #print(f"train data looks like: {train.tail}")
-                #print(f"index name of train is {train.index}")
+                        #reg_help = RegressHelp()
+                        for (regressor_name_lst, _) in kwargs['regressor_list']:
+                            # match the timestep between regressor and time series; regressor_tuple([regressor_col_name1,...,regressor_col_nameN], regressor_dataframe)
+                            #adjusted_regr, train = reg_help.matching_regr_data(regressor_df, train)
+                            for regressor_name in regressor_name_lst:
+                                # add regressor data to training dataframe
+                                #train[regressor_name] = adjusted_regr[regressor_name].values
+                                #print(f"there is {sum(train[regressor_name].isna())} NaN in {train[regressor_name]}")
+                                #print(f"tail values for {regressor_name} is {train[regressor_name].tail()}")
 
-                # train the model
-                m.fit(train) # 'train' should contain already-transformed regressor values
-                # make forecast
-                future = m.make_future_dataframe(**forecast_params)
-                #print(f"what does future look like? {future.tail()}")
-                
-                for (regressor_name_lst, _) in kwargs['regressor_list']:	
-                    for regressor_name in regressor_name_lst:			
-                        if 'regressor_trans_func' in kwargs: # dict{'regressor_name1': func1, ..., 'regressor_nameN': funcN}
-                            # apply the same 'ds'-based transformation function (used to transform training data) to the future regressor values 
-                            # [caution] the code below (apply func) has NOT been tested yet as of Aug.17, 2021
-                            future[regressor_name] = future['ds'].apply(kwargs['regressor_trans_func'][regressor_name])
-                        else:
-                            # use the historical data (last "forecast_params['periods']" data points) --> only works properly for in-sample prediction, need to provide a kwargs['test'] <<-this is not going to work, as index of test_df is not datetime obj
-                            #future[regressor_name] = future['ds'].apply(lambda x: kwargs['test'].loc[x,regressor_name])
-                            #print(f"future values for {regressor_name} is {future[regressor_name].tail()}")
-                            n_future_regr_data = forecast_params['periods'] 
-                            # concat the train df with designated amt of regressor data from a separate df. [Caution]: this will not work if: (1) no separate dataset for future values of regr is avaiable or (2) # of data points in that dataset is less than those needed for forecast
-                            future[regressor_name] = pd.concat([train[regressor_name],kwargs["regr_future"][regressor_name][:n_future_regr_data]], axis=0).values
+                                # add regressor to the model
+                                m.add_regressor(regressor_name)
 
-                print(f"what does future look like? {future.sample(24)}")
+                        #print(f"train data looks like: {train.tail}")
+                        #print(f"index name of train is {train.index}")
 
-            else: 
-                # train the model directly, if no regressor is provider
-                m.fit(train)
-                # make forecast
-                future = m.make_future_dataframe(**forecast_params)
+                        # train the model
+                        m.fit(train) # 'train' should contain already-transformed regressor values
+                        # make forecast
+                        future = m.make_future_dataframe(**forecast_params)
+                        #print(f"what does future look like? {future.tail()}")
+                        
+                        for (regressor_name_lst, _) in kwargs['regressor_list']:	
+                            for regressor_name in regressor_name_lst:			
+                                if 'regressor_trans_func' in kwargs: # dict{'regressor_name1': func1, ..., 'regressor_nameN': funcN}
+                                    # apply the same 'ds'-based transformation function (used to transform training data) to the future regressor values 
+                                    # [caution] the code below (apply func) has NOT been tested yet as of Aug.17, 2021
+                                    future[regressor_name] = future['ds'].apply(kwargs['regressor_trans_func'][regressor_name])
+                                else:
+                                    # use the historical data (last "forecast_params['periods']" data points) --> only works properly for in-sample prediction, need to provide a kwargs['test'] <<-this is not going to work, as index of test_df is not datetime obj
+                                    #future[regressor_name] = future['ds'].apply(lambda x: kwargs['test'].loc[x,regressor_name])
+                                    #print(f"future values for {regressor_name} is {future[regressor_name].tail()}")
+                                    n_future_regr_data = forecast_params['periods'] 
+                                    # concat the train df with designated amt of regressor data from a separate df. [Caution]: this will not work if: (1) no separate dataset for future values of regr is avaiable or (2) # of data points in that dataset is less than those needed for forecast
+                                    future[regressor_name] = pd.concat([train[regressor_name],kwargs["regr_future"][regressor_name][:n_future_regr_data]], axis=0).values
+
+                        print(f"what does future look like? {future.sample(24)}")
+                        forecast = m.predict(future)
+                        MAE = self.eval_model(kwargs['groundtruth'], forecast)['MAE']
+                        model_parameters = model_parameters.append({'MAE':MAE,'Parameters':p},ignore_index=True)
             
-            # make prediction
-            forecast = m.predict(future)
+                    # sort the hyperparameters set based on MAE
+                    parameters = model_parameters.sort_values(by=['MAE']).reset_index(drop=True)
+                    parameters.head()
 
-        #forecast = forecast[-forecast_params['periods']:] 
+            ###############################
+            # retrain and predict using the best parameters
+                    #parameters['Parameters'][0]
+                    m = Prophet(
+                            changepoint_prior_scale = parameters['Parameters'][0]['changepoint_prior_scale'],
+                            seasonality_prior_scale = parameters['Parameters'][0]['seasonality_prior_scale'],
+                            seasonality_mode = parameters['Parameters'][0]['seasonality_mode'],
+                            weekly_seasonality=True,
+                            daily_seasonality = True,
+                            yearly_seasonality = True, 
+                            interval_width=0.95
+                        )
+
+                    #reg_help = RegressHelp()
+                    for (regressor_name_lst, _) in kwargs['regressor_list']:
+                            # match the timestep between regressor and time series; regressor_tuple([regressor_col_name1,...,regressor_col_nameN], regressor_dataframe)
+                            #adjusted_regr, train = reg_help.matching_regr_data(regressor_df, train)
+                            for regressor_name in regressor_name_lst:
+                                # add regressor data to training dataframe
+                                #train[regressor_name] = adjusted_regr[regressor_name].values
+                                #print(f"there is {sum(train[regressor_name].isna())} NaN in {train[regressor_name]}")
+                                #print(f"tail values for {regressor_name} is {train[regressor_name].tail()}")
+
+                                # add regressor to the model
+                                m.add_regressor(regressor_name)
+
+                        #print(f"train data looks like: {train.tail}")
+                        #print(f"index name of train is {train.index}")
+
+                        # train the model
+                    m.fit(train) # 'train' should contain already-transformed regressor values
+                        # make forecast
+                    future = m.make_future_dataframe(**forecast_params)
+                        #print(f"what does future look like? {future.tail()}")
+                        
+                    for (regressor_name_lst, _) in kwargs['regressor_list']:	
+                            for regressor_name in regressor_name_lst:			
+                                if 'regressor_trans_func' in kwargs: # dict{'regressor_name1': func1, ..., 'regressor_nameN': funcN}
+                                    # apply the same 'ds'-based transformation function (used to transform training data) to the future regressor values 
+                                    # [caution] the code below (apply func) has NOT been tested yet as of Aug.17, 2021
+                                    future[regressor_name] = future['ds'].apply(kwargs['regressor_trans_func'][regressor_name])
+                                else:
+                                    # use the historical data (last "forecast_params['periods']" data points) --> only works properly for in-sample prediction, need to provide a kwargs['test'] <<-this is not going to work, as index of test_df is not datetime obj
+                                    #future[regressor_name] = future['ds'].apply(lambda x: kwargs['test'].loc[x,regressor_name])
+                                    #print(f"future values for {regressor_name} is {future[regressor_name].tail()}")
+                                    n_future_regr_data = forecast_params['periods'] 
+                                    # concat the train df with designated amt of regressor data from a separate df. [Caution]: this will not work if: (1) no separate dataset for future values of regr is avaiable or (2) # of data points in that dataset is less than those needed for forecast
+                                    future[regressor_name] = pd.concat([train[regressor_name],kwargs["regr_future"][regressor_name][:n_future_regr_data]], axis=0).values
+
+                    print(f"what does future look like? {future.sample(24)}")
+                    forecast = m.predict(future)
+            ###############################
+
+
+                else: 
+                    # train the model directly, if no regressor is provider
+                     m = Prophet()
+                     m.fit(train)
+                    # make forecast
+                     future = m.make_future_dataframe(**forecast_params)
+                     forecast = m.predict(future)
+            
         #print(f"shape of forecast obj: {forecast.shape}")
         
         print(f"tail of forecast results: {forecast[['ds', 'yhat']].tail()}")

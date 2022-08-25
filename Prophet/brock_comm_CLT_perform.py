@@ -146,9 +146,9 @@ class CLT_perform:
 		print(self.train_df.tail())
 
 
-	def train_N_forecast(self,train,forecast_param,**kwargs):
+	def train_N_forecast(self, train, forecast_param, use_hyperparam, **kwargs):
 		self.forecast_obj = FB_prophet_train_forecast()
-		self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train, forecast_param, **kwargs)
+		self.forecast_results, self.trained_model = self.forecast_obj.train_forecast(train, forecast_param, use_hyperparam, **kwargs)
 
 		# check if retrain an existing model
 		if 'trained_model' in kwargs:
