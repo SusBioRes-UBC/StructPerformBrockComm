@@ -69,10 +69,11 @@ class Results_Analysis:
             plt.plot(self.groundtruth_dict[fkey]['ds'], self.groundtruth_dict[fkey]['y'], label = 'groundtruth')
             for modelkey, results_df in m_df_dict.items():
                 plt.plot(results_df['ds'], results_df['y'], label = modelkey)
+            plt.xticks(rotation ='vertical')
 
             #groundtruth to add
             plt.xlabel("timestamp")
-            plt.ylabel("yhat")
+            plt.ylabel("Moisture Level (%) or Vertical Movement (mm)")
             plt.legend(loc='best')
             plt.tight_layout()
             plt.savefig(os.path.sep.join([kwargs['output_path'], str(fkey) + " forecasts.png"]), dpi=600)
@@ -87,11 +88,12 @@ class Results_Analysis:
             plt.plot(results_df['ds'], results_df['y'], label = 'yhat')
             plt.plot(results_df['ds'], results_df['yhat_lower'], label = 'yhat_lower')
             plt.plot(results_df['ds'], results_df['yhat_upper'], label = 'yhat_upper')
+            plt.xticks(rotation ='vertical')
             plt.fill_between(results_df['ds'], results_df['yhat_lower'], results_df['yhat_upper'], color='y', alpha=.5)
     
             #groundtruth to add
             plt.xlabel("timestamp")
-            plt.ylabel("y")
+            plt.ylabel("Moisture Level (%) or Vertical Movement (mm)")
             plt.legend(loc='best')
             plt.tight_layout()
             plt.savefig(os.path.sep.join([kwargs['output_path'], str(fkey) + " future forecasts.png"]), dpi=600)

@@ -49,10 +49,12 @@ def Prophet_Pipeline():
     
         for columnName in nameList:
             trial_1.preprocess(col_name=columnName, forecast_horizon=forecast_horizon, impute='mean', regressor_list=regressor_lst)
+
             regressor_trans_func = {
                 'MEAN_TEMPERATURE': lambda x: x,
                 'TOTAL_PRECIPITATION': lambda x: x,
             }
+            
             # default using hyperparameter, otherwise set the third argument to False
             trial_1.train_N_forecast(trial_1.train_df, forecast_params, True, regressor_list=regressor_lst,regr_future=trial_1.test_df, groundtruth=trial_1.test_df)
            

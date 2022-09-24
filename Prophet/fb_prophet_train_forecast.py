@@ -201,7 +201,7 @@ class FB_prophet_train_forecast:
 
 
                 else: 
-                    # train the model directly, if no regressor is provider
+                    # train the model directly, if no regressor is provided (hyperparameter will not be available then!)
                      m = Prophet()
                      m.fit(train)
                     # make forecast
