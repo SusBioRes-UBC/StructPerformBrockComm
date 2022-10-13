@@ -6,7 +6,7 @@ from  Prophet.regressor_helper import RegressHelp
 
 def Prophet_Pipeline():
     fileList = os.listdir('TALLWOOD DATA/BCTW Sensor Data')
-    #fileList = ["Floor 3.csv", "Floor 4.csv"]
+    #fileList = ["Floor 3.csv"]
     
     def append_to_excel(fpath, df, sheet_name):
         with pd.ExcelWriter(fpath,engine='openpyxl', mode="a", if_sheet_exists='replace') as f:
@@ -56,12 +56,15 @@ def Prophet_Pipeline():
             }
             
             # default using hyperparameter, otherwise set the third argument to False
-            trial_1.train_N_forecast(trial_1.train_df, forecast_params, True, regressor_list=regressor_lst,regr_future=trial_1.test_df, groundtruth=trial_1.test_df)
+            trial_1.train_N_forecast(trial_1.train_df, forecast_params, True, regressor_list=regressor_lst, regr_future=trial_1.test_df, groundtruth=trial_1.test_df)
            
             # initialize list of lists
             data = trial_1.forecast_results[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail(forecast_horizon)
             df = df.append(data, ignore_index=True)
-            print(df)
+            forecast_groundtruth_combined_df = pd.merge(df, trial_1.test_df[['ds','y']].copy().rename(columns={'y': 'groundtruth'}), on="ds")
+            #print(df)
+            #print(forecast_groundtruth_combined_df)
+
     
             trial_1.plot_results(i[:-4] +' in-sample forecast results_with regr', trial_1.trained_model, trial_1.forecast_results)
             print('This is the forecast in ' + i)
@@ -78,7 +81,7 @@ def Prophet_Pipeline():
         forecast_dict[i[:-4]] = df.rename(columns={'yhat': 'y'})
         
         #produce prediction sheet
-        append_to_excel('Prophet\output.xlsx', df, i[:-4] + '_aggr')
+        append_to_excel('Prophet\output.xlsx', forecast_groundtruth_combined_df, i[:-4] + '_aggr')
 
         groundtruth_dict[i[:-4]] = trial_1.test_df
     

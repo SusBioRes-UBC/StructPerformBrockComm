@@ -32,7 +32,8 @@ class FB_prophet_train_forecast:
         if use_hyperparam == True:
             params_grid = {'seasonality_mode':('multiplicative','additive'),
                            'changepoint_prior_scale':[0.001, 0.05, 0.1],
-                           'seasonality_prior_scale' : [0.01, 1.0, 10.0]}
+                           'seasonality_prior_scale' : [0.01, 1.0, 10.0]
+                          }
             grid = ParameterGrid(params_grid)
             model_parameters = pd.DataFrame(columns = ['MAE','Parameters'])
 

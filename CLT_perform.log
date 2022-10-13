@@ -43874,3 +43874,777 @@
 2022-09-23 19:53:16,538 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
 2022-09-23 19:53:16,538 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
 2022-09-23 19:53:16,538 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
+2022-10-03 14:00:19,877 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-03 14:00:19,879 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-03 14:00:19,880 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-03 14:00:19,881 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-03 14:02:18,911 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-03 14:02:18,911 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-03 14:02:18,912 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-03 14:02:18,912 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-03 14:03:42,706 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-03 14:03:42,708 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-03 14:03:42,709 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-03 14:03:42,710 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-03 14:05:09,045 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-03 14:05:09,046 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-03 14:05:09,046 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-03 14:05:09,047 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-03 14:06:16,303 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-03 14:06:16,304 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-03 14:06:16,305 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-03 14:06:16,305 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-03 14:06:44,013 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-03 14:06:44,015 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-03 14:06:44,017 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-03 14:06:44,018 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-03 14:08:13,256 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-03 14:09:19,675 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-03 14:09:19,676 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-03 14:09:19,676 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-03 14:09:19,677 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-03 14:10:48,030 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-03 14:12:04,447 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-03 14:12:04,447 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-03 14:12:04,448 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-03 14:12:04,449 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-03 14:13:33,502 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:27:09,409 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:27:09,411 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 12:27:09,411 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:27:09,412 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:28:41,719 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:28:41,719 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 12:28:41,721 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:28:41,722 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:29:39,894 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:29:39,895 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 12:29:39,896 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:29:39,897 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:30:10,134 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:30:10,135 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 12:30:10,136 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:30:10,136 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:31:27,325 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.42352826841379726
+2022-10-12 12:31:32,928 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:31:32,928 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:31:32,929 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:31:32,929 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:31:32,931 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:31:32,931 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:31:32,932 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:31:32,932 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:32:11,668 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 12:32:11,668 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 12:32:15,590 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:32:15,590 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:32:15,590 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:32:15,591 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 12:32:15,591 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 12:32:15,591 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 12:32:15,593 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:32:15,593 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:32:15,593 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:32:15,594 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:32:15,594 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:32:15,594 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:34:47,349 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:34:47,350 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 12:34:47,351 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:34:47,351 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:36:02,339 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.42352826841379726
+2022-10-12 12:36:06,823 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:36:06,823 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:36:06,824 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:36:06,824 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:36:06,825 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:36:06,825 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:36:06,826 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:36:06,826 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:36:42,689 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 12:36:42,689 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 12:36:46,494 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:36:46,494 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:36:46,494 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:36:46,512 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 12:36:46,512 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 12:36:46,512 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 12:36:46,513 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:36:46,513 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:36:46,513 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:36:46,514 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:36:46,514 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:36:46,514 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:37:18,673 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 12:37:18,673 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 12:37:18,673 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 12:37:22,860 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:37:22,860 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:37:22,860 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:37:22,860 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:37:22,861 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:37:22,861 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:37:22,861 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:37:22,861 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:37:22,862 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:37:22,862 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:37:22,862 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:37:22,862 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:37:22,863 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:37:22,863 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:37:22,863 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:37:22,863 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:38:09,874 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 12:38:09,874 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 12:38:09,874 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 12:38:09,874 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 12:38:13,924 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:38:13,924 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:38:13,924 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:38:13,924 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:38:13,924 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:38:13,925 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 12:38:13,925 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 12:38:13,925 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 12:38:13,925 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 12:38:13,925 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 12:38:13,926 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 12:38:13,926 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 12:38:13,926 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 12:38:13,926 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 12:38:13,926 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 12:38:13,927 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:38:13,927 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:38:13,927 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:38:13,927 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:38:13,927 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:39:50,079 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:39:50,079 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:39:50,079 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:39:50,079 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:39:50,079 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:39:54,515 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:39:54,516 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:39:54,516 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:39:54,516 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:39:54,516 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:39:54,516 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:39:54,516 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:41:09,808 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 12:41:09,808 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 12:41:09,808 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 12:41:09,808 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 12:41:09,808 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 12:41:09,808 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 12:41:14,301 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:41:14,301 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:41:14,301 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:41:14,301 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:41:14,301 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:41:14,301 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:41:14,301 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:41:14,319 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 12:41:14,319 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 12:41:14,319 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 12:41:14,319 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 12:41:14,319 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 12:41:14,319 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 12:41:14,319 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 12:41:14,320 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:41:14,320 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:41:14,320 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:41:14,320 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:41:14,320 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:41:14,320 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:41:14,320 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:41:14,321 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:41:14,321 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:41:14,321 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:41:14,321 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:41:14,321 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:41:14,321 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:41:14,321 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:45:50,993 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:45:50,994 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 12:45:50,995 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:45:50,996 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:47:07,018 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.42352826841379726
+2022-10-12 12:47:09,968 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:47:09,968 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:47:09,969 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:47:09,969 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:47:09,970 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:47:09,970 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:47:09,971 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:47:09,971 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:47:45,191 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 12:47:45,191 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 12:47:48,128 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:47:48,128 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:47:48,128 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:47:48,129 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 12:47:48,129 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 12:47:48,129 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 12:47:48,129 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:47:48,129 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:47:48,129 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:47:48,130 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:47:48,130 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:47:48,130 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:48:21,659 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 12:48:21,659 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 12:48:21,659 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 12:48:25,022 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:48:25,022 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:48:25,022 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:48:25,022 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:48:25,023 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:48:25,023 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:48:25,023 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:48:25,023 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:48:25,023 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:48:25,023 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:48:25,023 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:48:25,023 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:48:25,024 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:48:25,024 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:48:25,024 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:48:25,024 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:49:13,355 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 12:49:13,355 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 12:49:13,355 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 12:49:13,355 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 12:49:16,702 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:49:16,702 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:49:16,702 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:49:16,702 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:49:16,702 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:49:16,703 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 12:49:16,703 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 12:49:16,703 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 12:49:16,703 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 12:49:16,703 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 12:49:16,704 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 12:49:16,704 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 12:49:16,704 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 12:49:16,704 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 12:49:16,704 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 12:49:16,705 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:49:16,705 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:49:16,705 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:49:16,705 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:49:16,705 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:50:51,931 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:50:51,931 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:50:51,931 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:50:51,931 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:50:51,931 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 12:50:55,150 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:50:55,150 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:50:55,150 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:50:55,150 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:50:55,150 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:50:55,150 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:50:55,151 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:50:55,151 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:50:55,151 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:50:55,151 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:50:55,151 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:50:55,151 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 12:50:55,152 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:50:55,152 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:50:55,152 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:50:55,152 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:50:55,152 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:50:55,152 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:50:55,153 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:50:55,153 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:50:55,153 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:50:55,153 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:50:55,153 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:50:55,153 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:54:42,595 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:54:42,596 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 12:54:42,597 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:54:42,597 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:56:01,696 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.42352826841379726
+2022-10-12 12:56:06,198 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:56:06,198 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 12:56:06,199 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:56:06,199 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 12:56:06,200 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:56:06,200 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 12:56:06,200 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 12:56:06,200 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:06:25,652 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:06:25,654 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 13:06:25,655 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:06:25,656 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:07:53,325 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.42352826841379726
+2022-10-12 13:07:58,731 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:07:58,731 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:07:58,732 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:07:58,732 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:07:58,734 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:07:58,734 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:07:58,734 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:07:58,734 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:08:40,909 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 13:08:40,909 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 13:08:45,031 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:08:45,031 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:08:45,031 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:08:45,033 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 13:08:45,033 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 13:08:45,033 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 13:08:45,034 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:08:45,034 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:08:45,034 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:08:45,035 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:08:45,035 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:08:45,035 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:09:22,713 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 13:09:22,713 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 13:09:22,713 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 13:09:26,679 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:09:26,679 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:09:26,679 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:09:26,679 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:09:26,680 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:09:26,680 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:09:26,680 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:09:26,680 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:09:26,681 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:09:26,681 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:09:26,681 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:09:26,681 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:09:26,681 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:09:26,681 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:09:26,681 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:09:26,681 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:11:04,352 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:11:04,353 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 13:11:04,354 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:11:04,355 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:12:33,414 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.42352826841379726
+2022-10-12 13:12:39,218 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:12:39,218 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:12:39,219 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:12:39,219 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:12:39,220 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:12:39,220 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:12:39,220 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:12:39,220 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:13:23,607 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 13:13:23,607 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 13:13:27,591 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:13:27,591 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:13:27,591 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:13:27,591 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 13:13:27,591 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 13:13:27,591 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 13:13:27,593 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:13:27,593 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:13:27,593 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:13:27,594 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:13:27,594 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:13:27,594 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:14:05,961 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 13:14:05,961 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 13:14:05,961 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.4341765358743646
+2022-10-12 13:14:09,888 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:14:09,888 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:14:09,888 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:14:09,888 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:14:09,890 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:14:09,890 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:14:09,890 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:14:09,890 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:14:09,892 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:14:09,892 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:14:09,892 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:14:09,892 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:14:09,893 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:14:09,893 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:14:09,893 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:14:09,893 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:15:07,620 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 13:15:07,620 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 13:15:07,620 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 13:15:07,620 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.949247206493526
+2022-10-12 13:15:11,578 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:15:11,578 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:15:11,578 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:15:11,578 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:15:11,578 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:15:11,579 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 13:15:11,579 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 13:15:11,579 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 13:15:11,579 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 13:15:11,579 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 13:15:11,580 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 13:15:11,580 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 13:15:11,580 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 13:15:11,580 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 13:15:11,580 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 13:15:11,581 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:15:11,581 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:15:11,581 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:15:11,581 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:15:11,581 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:16:56,134 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 13:16:56,134 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 13:16:56,134 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 13:16:56,134 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 13:16:56,134 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7052426042511816
+2022-10-12 13:17:00,100 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:17:00,100 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:17:00,100 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:17:00,100 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:17:00,100 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:17:00,100 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:17:00,101 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 13:17:00,101 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 13:17:00,101 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 13:17:00,101 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 13:17:00,101 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 13:17:00,101 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 13:17:00,102 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:17:00,102 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:17:00,102 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:17:00,102 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:17:00,102 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:17:00,102 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:17:00,103 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:17:00,103 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:17:00,103 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:17:00,103 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:17:00,103 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:17:00,103 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:18:26,619 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 13:18:26,619 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 13:18:26,619 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 13:18:26,619 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 13:18:26,619 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 13:18:26,619 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.7694355367188324
+2022-10-12 13:18:30,359 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:18:30,359 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:18:30,359 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:18:30,359 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:18:30,359 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:18:30,359 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:18:30,359 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:18:30,360 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 13:18:30,360 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 13:18:30,360 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 13:18:30,360 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 13:18:30,360 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 13:18:30,360 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 13:18:30,360 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 13:18:30,361 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:18:30,361 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:18:30,361 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:18:30,361 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:18:30,361 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:18:30,361 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:18:30,361 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:18:30,362 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:18:30,362 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:18:30,362 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:18:30,362 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:18:30,362 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:18:30,362 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:18:30,362 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:19:48,660 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:19:48,662 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 13:19:48,662 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:19:48,663 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:21:16,884 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.42352826841379726
+2022-10-12 13:21:52,315 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:21:52,317 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 13:21:52,318 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:21:52,319 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:23:18,983 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.42352826841379726
+2022-10-12 13:23:23,437 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:23:23,437 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:23:23,437 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:23:23,437 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:23:23,438 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:23:23,438 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:23:23,439 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:23:23,439 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:24:07,339 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 13:24:07,339 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 13:24:11,378 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:24:11,378 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:24:11,378 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:24:11,379 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 13:24:11,379 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 13:24:11,379 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 13:24:11,380 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:24:11,380 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:24:11,380 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:24:11,381 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:24:11,381 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:24:11,381 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:37:50,246 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:37:50,247 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 13:37:50,248 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:37:50,249 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:38:09,199 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:38:09,201 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 13:38:09,202 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:38:09,203 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:39:35,008 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.42352826841379726
+2022-10-12 13:39:39,496 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:39:39,496 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 13:39:39,497 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:39:39,497 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 13:39:39,498 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:39:39,498 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 13:39:39,499 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:39:39,499 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 13:40:23,559 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 13:40:23,559 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3752902995870532
+2022-10-12 17:58:58,430 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 17:58:58,431 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 45
+2022-10-12 17:58:58,431 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 17:58:58,432 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 18:29:56,162 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.4147712986052281
+2022-10-12 18:30:00,906 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 18:30:00,906 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 18:30:00,907 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 18:30:00,907 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 18:30:00,907 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 18:30:00,907 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 18:30:00,908 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 18:30:00,908 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 18:47:25,199 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.09999565895742606
+2022-10-12 18:47:25,199 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.09999565895742606
+2022-10-12 18:47:29,209 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 18:47:29,209 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 18:47:29,209 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 18:47:29,210 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 18:47:29,210 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 18:47:29,210 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4473
+2022-10-12 18:47:29,211 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 18:47:29,211 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 18:47:29,211 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 18:47:29,212 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 18:47:29,212 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 18:47:29,212 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 19:14:54,832 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.20218755427652546
+2022-10-12 19:14:54,832 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.20218755427652546
+2022-10-12 19:14:54,832 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.20218755427652546
+2022-10-12 19:14:58,572 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 19:14:58,572 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 19:14:58,572 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 19:14:58,572 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 19:14:58,572 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 19:14:58,572 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 19:14:58,572 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 19:14:58,572 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 4233
+2022-10-12 19:14:58,573 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 19:14:58,573 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 19:14:58,573 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 19:14:58,573 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 19:14:58,574 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 19:14:58,574 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 19:14:58,574 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 19:14:58,574 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 19:42:17,115 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.1404831320998945
+2022-10-12 19:42:17,115 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.1404831320998945
+2022-10-12 19:42:17,115 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.1404831320998945
+2022-10-12 19:42:17,115 : INFO : Prophet.brock_comm_CLT_perform : MAE: 1.1404831320998945
+2022-10-12 19:42:21,141 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 19:42:21,141 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 19:42:21,141 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 19:42:21,141 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 19:42:21,141 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 19:42:21,144 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 19:42:21,144 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 19:42:21,144 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 19:42:21,144 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 19:42:21,144 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 705
+2022-10-12 19:42:21,147 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 19:42:21,147 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 19:42:21,147 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 19:42:21,147 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 19:42:21,147 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16914
+2022-10-12 19:42:21,148 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 19:42:21,148 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 19:42:21,148 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 19:42:21,148 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 19:42:21,148 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:11:11,955 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.10297872736458129
+2022-10-12 20:11:11,955 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.10297872736458129
+2022-10-12 20:11:11,955 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.10297872736458129
+2022-10-12 20:11:11,955 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.10297872736458129
+2022-10-12 20:11:11,955 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.10297872736458129
+2022-10-12 20:11:15,934 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:11:15,934 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:11:15,934 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:11:15,934 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:11:15,934 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:11:15,934 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:11:15,935 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 20:11:15,935 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 20:11:15,935 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 20:11:15,935 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 20:11:15,935 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 20:11:15,935 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 861
+2022-10-12 20:11:15,936 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:11:15,936 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:11:15,936 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:11:15,936 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:11:15,936 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:11:15,936 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:11:15,937 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:11:15,937 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:11:15,937 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:11:15,937 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:11:15,937 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:11:15,937 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:44:39,527 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.23503530100652908
+2022-10-12 20:44:39,527 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.23503530100652908
+2022-10-12 20:44:39,527 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.23503530100652908
+2022-10-12 20:44:39,527 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.23503530100652908
+2022-10-12 20:44:39,527 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.23503530100652908
+2022-10-12 20:44:39,527 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.23503530100652908
+2022-10-12 20:44:43,380 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:44:43,380 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:44:43,380 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:44:43,380 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:44:43,380 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:44:43,380 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:44:43,380 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 20:44:43,381 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 20:44:43,381 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 20:44:43,381 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 20:44:43,381 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 20:44:43,381 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 20:44:43,381 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 20:44:43,381 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 957
+2022-10-12 20:44:43,382 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:44:43,382 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:44:43,382 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:44:43,382 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:44:43,382 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:44:43,382 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:44:43,382 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 20:44:43,383 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:44:43,383 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:44:43,383 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:44:43,383 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:44:43,383 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:44:43,383 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 20:44:43,383 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:08:54,914 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.13267985830023976
+2022-10-12 21:08:54,914 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.13267985830023976
+2022-10-12 21:08:54,914 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.13267985830023976
+2022-10-12 21:08:54,914 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.13267985830023976
+2022-10-12 21:08:54,914 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.13267985830023976
+2022-10-12 21:08:54,914 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.13267985830023976
+2022-10-12 21:08:54,914 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.13267985830023976
+2022-10-12 21:08:58,552 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:08:58,552 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:08:58,552 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:08:58,552 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:08:58,552 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:08:58,552 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:08:58,552 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:08:58,552 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:08:58,554 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 502
+2022-10-12 21:08:58,554 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 502
+2022-10-12 21:08:58,554 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 502
+2022-10-12 21:08:58,554 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 502
+2022-10-12 21:08:58,554 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 502
+2022-10-12 21:08:58,554 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 502
+2022-10-12 21:08:58,554 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 502
+2022-10-12 21:08:58,554 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 502
+2022-10-12 21:08:58,555 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16664
+2022-10-12 21:08:58,555 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16664
+2022-10-12 21:08:58,555 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16664
+2022-10-12 21:08:58,555 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16664
+2022-10-12 21:08:58,555 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16664
+2022-10-12 21:08:58,555 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16664
+2022-10-12 21:08:58,555 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16664
+2022-10-12 21:08:58,555 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16664
+2022-10-12 21:08:58,556 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:08:58,556 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:08:58,556 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:08:58,556 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:08:58,556 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:08:58,556 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:08:58,556 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:08:58,556 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:37:54,123 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3293286587327779
+2022-10-12 21:37:54,123 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3293286587327779
+2022-10-12 21:37:54,123 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3293286587327779
+2022-10-12 21:37:54,123 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3293286587327779
+2022-10-12 21:37:54,123 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3293286587327779
+2022-10-12 21:37:54,123 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3293286587327779
+2022-10-12 21:37:54,123 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3293286587327779
+2022-10-12 21:37:54,123 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.3293286587327779
+2022-10-12 21:37:57,108 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:37:57,108 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:37:57,108 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:37:57,108 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:37:57,108 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:37:57,108 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:37:57,108 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:37:57,108 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:37:57,108 : INFO : Prophet.brock_comm_CLT_perform : ==== statistics of Aggregate column ====
+2022-10-12 21:37:57,109 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 777
+2022-10-12 21:37:57,109 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 777
+2022-10-12 21:37:57,109 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 777
+2022-10-12 21:37:57,109 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 777
+2022-10-12 21:37:57,109 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 777
+2022-10-12 21:37:57,109 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 777
+2022-10-12 21:37:57,109 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 777
+2022-10-12 21:37:57,109 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 777
+2022-10-12 21:37:57,109 : INFO : Prophet.brock_comm_CLT_perform : idx of the FIRST valid cell is: 777
+2022-10-12 21:37:57,110 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 21:37:57,110 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 21:37:57,110 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 21:37:57,110 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 21:37:57,110 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 21:37:57,110 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 21:37:57,110 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 21:37:57,110 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 21:37:57,110 : INFO : Prophet.brock_comm_CLT_perform : idx of the LAST valid cell is: 16796
+2022-10-12 21:37:57,111 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:37:57,111 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:37:57,111 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:37:57,111 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:37:57,111 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:37:57,111 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:37:57,111 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:37:57,111 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 21:37:57,111 : INFO : Prophet.brock_comm_CLT_perform :  
+2022-10-12 22:09:11,158 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
+2022-10-12 22:09:11,158 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
+2022-10-12 22:09:11,158 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
+2022-10-12 22:09:11,158 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
+2022-10-12 22:09:11,158 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
+2022-10-12 22:09:11,158 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
+2022-10-12 22:09:11,158 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
+2022-10-12 22:09:11,158 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686
+2022-10-12 22:09:11,158 : INFO : Prophet.brock_comm_CLT_perform : MAE: 0.17559394429148686

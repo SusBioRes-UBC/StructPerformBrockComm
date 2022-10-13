@@ -92,7 +92,7 @@ class Results_Analysis:
             plt.fill_between(results_df['ds'], results_df['yhat_lower'], results_df['yhat_upper'], color='y', alpha=.5)
     
             #groundtruth to add
-            plt.xlabel("timestamp")
+            plt.xlabel("timestamp" + " (" + str(results_df['ds'][0]) + " - " + str(results_df['ds'].iloc[-1]) + ")")
             plt.ylabel("Moisture Level (%) or Vertical Movement (mm)")
             plt.legend(loc='best')
             plt.tight_layout()
