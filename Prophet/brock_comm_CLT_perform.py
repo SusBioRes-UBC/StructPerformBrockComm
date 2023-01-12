@@ -113,6 +113,17 @@ class CLT_perform:
 		self.data_for_anal = pd.DataFrame(self.worksheet[[col_name,"DateTime"]].iloc[first_valid_idx:last_valid_idx+1].copy()).rename(columns={col_name:'y', 'DateTime': 'ds'})
 		#self.data_for_anal = pd.DataFrame(self.worksheet[col_name].iloc[first_valid_idx:last_valid_idx+1].copy()).rename(columns={col_name:'y'}) # [caution] .iloc is end-exclusive (while .loc is end-inclusive)
 		#print(self.data_for_anal.tail())
+		# if needed, further refine the selection of time period
+		if 'drying_period' in kwargs: # if make prediction for drying period only, expecting a tuple of datatime obj: (start_dt, end_dt)
+			# look up the corresponding idx using the 'drying_period'
+			pass
+			# check if drying period idx are within the valid time period idx (compare with first and last valid indx)
+			#  if not, send the warning msg "Training for drying period only could not be completed"
+			pass
+
+
+
+
 		
 		# check if impute is intended for ALL data (using sklearn SimpleImputer)
 		if 'impute' in kwargs:
