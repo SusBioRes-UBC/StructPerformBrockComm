@@ -115,11 +115,17 @@ class CLT_perform:
 		#print(self.data_for_anal.tail())
 		# if needed, further refine the selection of time period
 		if 'drying_period' in kwargs: # if make prediction for drying period only, expecting a tuple of datatime obj: (start_dt, end_dt)
+			# e.g., ('2016-04-30 23:00:00-0700', '2016-05-01 11:00:00-0700')
 			# look up the corresponding idx using the 'drying_period'
+			drying_start_idx = self.worksheet.query("col_name == kwargs['drying_period'][0]").index[0]
+			drying_end_idx = self.worksheet.query("col_name == kwargs['drying_period'][1]").index[0]
 			pass
 			# check if drying period idx are within the valid time period idx (compare with first and last valid indx)
 			#  if not, send the warning msg "Training for drying period only could not be completed"
-			pass
+			if drying_start_idx in range(first_valid_idx, last_valid_idx+1) and drying_end_idx in range(first_valid_idx, last_valid_idx+1):
+				pass
+			else:
+				print(f"Training for drying period only could not be completed, as the drying period is not completely included in the valid data range")
 
 
 
